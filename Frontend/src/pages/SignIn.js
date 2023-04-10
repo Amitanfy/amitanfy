@@ -54,7 +54,7 @@ export default function SignIn() {
   };
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn();
+    signIn('facebook');
   };
   if(!stage){
   return (
@@ -74,7 +74,7 @@ export default function SignIn() {
               className={styles.inputfield}
               type="text"
             />
-            <label for="inputfield" className={styles.inputlabel}>
+            <label htmlFor="inputfield" className={styles.inputlabel}>
               Enter username
             </label>
             <span className={styles.inputhighlight}></span>
@@ -90,7 +90,7 @@ export default function SignIn() {
               placeholder="Password"
               className={styles.inputfield}
             />
-            <label for="inputfield" className={styles.inputlabel}>
+            <label htmlFor="inputfield" className={styles.inputlabel}>
               Enter password
             </label>
             <span className={styles.inputhighlight}></span>
