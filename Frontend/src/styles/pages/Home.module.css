@@ -11,9 +11,7 @@
   align-items: center;
   gap: 100px;
 }
-p {
-  margin: 0;
-}
+
 .dropdown {
   height: 20px;
   border: 1px solid red;

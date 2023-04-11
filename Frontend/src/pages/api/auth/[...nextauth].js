@@ -1,4 +1,4 @@
-import NextAuth from "next-auth"
+import NextAuth from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 
 export const authOptions = {
@@ -7,13 +7,9 @@ export const authOptions = {
     FacebookProvider({
       clientId: process.env.FACEBOOK_CLIENT_ID,
       clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-      authorization:{
-        prompt: "consent",
-          access_type: "offline",
-          response_type: "code"
-      }
-    })
-  ]
-}
+      callbackUrl: `${process.env.NEXTAUTH_URL}/api/auth/callback/facebook`,
+    }),
+  ],
+};
 
-export default NextAuth(authOptions)
+export default NextAuth(authOptions);
