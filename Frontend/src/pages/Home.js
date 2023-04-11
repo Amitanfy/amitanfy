@@ -1,7 +1,7 @@
 import styles from "../styles/pages/Home.module.css";
 
-export const Home = () => {
-  console.log(process.env.FACEBOOK_CLIENT_ID)
+export default function Home() {
+  console.log(process.env.FACEBOOK_CLIENT_ID);
   return (
     <div className={styles.outer}>
       <div className={styles.dropdowns}>
@@ -58,4 +58,4 @@ export const Home = () => {
       </div>
     </div>
   );
-};
+}
