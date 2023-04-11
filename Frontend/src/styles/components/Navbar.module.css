@@ -1,10 +1,10 @@
 .outer {
   width: 100vw;
   height: 6.5vh;
-  border: 1px solid red;
   display: flex;
   justify-content: center;
   gap: 600px;
+  font-family: "Nexa-Bold", arial, helvetica, sans-serif;
 }
 .left {
   display: flex;
@@ -16,14 +16,10 @@
   align-items: center;
   gap: 30px;
 }
-.logo {
-  border: 1px solid red;
-}
 .allaboutpets {
   color: #6505b5;
   font-size: 14px;
   font-weight: bold;
-  border: 1px solid red;
   display: flex;
   align-items: center;
   gap: 3px;
@@ -36,7 +32,6 @@
   width: 30px;
   height: 30px;
   color: #4d4650;
-  border: 1px solid red;
 }
 .navbarVerticalLine {
   width: 1px;
@@ -44,14 +39,12 @@
   background-color: #d2d1d3;
 }
 .navbarSign {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nexa-Bold", arial, helvetica, sans-serif;
   font-weight: bold;
   color: #4d4651;
-  border: 1px solid red;
 }
 .navbarLog {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Nexa-Bold", arial, helvetica, sans-serif;
   font-weight: bold;
   color: #4d4651;
-  border: 1px solid red;
 }
