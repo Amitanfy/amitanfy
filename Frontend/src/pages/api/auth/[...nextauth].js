@@ -10,6 +10,7 @@ export const authOptions = {
       callbackUrl: `${process.env.NEXTAUTH_URL}/api/auth/callback/facebook`,
     }),
   ],
+  secret: process.env.NEXTAUTH_SECRET,
 };
 
 export default NextAuth(authOptions);
