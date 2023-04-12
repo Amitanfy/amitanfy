@@ -104,6 +104,7 @@ export default function SignIn() {
             <Link href="/SignUp">Sign Up </Link>
           </p>
           <BsGoogle style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
+          <BsFacebook style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
         </div>
       </div>
     </div>
