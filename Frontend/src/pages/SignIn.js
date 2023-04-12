@@ -22,6 +22,7 @@ export default function SignIn() {
 
   useEffect(()=>{
     session?router.push("/"):null;
+    console.log(process.env.NEXTAUTH_URL)
   },[session])
 
   const verifyAccount = (val) => {
@@ -56,6 +57,10 @@ export default function SignIn() {
   const handleSignin = (e) => {
     e.preventDefault();
     signIn('google');
+  };
+  const handleSignin2 = (e) => {
+    e.preventDefault();
+    signIn('facebook');
   };
   if(!stage){
   return (
@@ -104,7 +109,7 @@ export default function SignIn() {
             <Link href="/SignUp">Sign Up </Link>
           </p>
           <BsGoogle style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
-          <BsFacebook style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
+          <BsFacebook style={{cursor:"pointer"}} onClick={handleSignin2} size="1.5rem"/>
         </div>
       </div>
     </div>
