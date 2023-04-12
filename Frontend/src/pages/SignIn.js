@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { UserContext } from "@/common/userContext";
 import { useSession, signIn } from 'next-auth/react'
 import { BsFacebook } from "react-icons/bs";
+import { BsGoogle } from "react-icons/bs";
 export default function SignIn() {
   const { data: session } = useSession();
   const [username, setUsername] = useState("");
@@ -54,7 +55,7 @@ export default function SignIn() {
   };
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn('facebook');
+    signIn('google');
   };
   if(!stage){
   return (
@@ -102,7 +103,7 @@ export default function SignIn() {
             Don't have an account yet? <br />
             <Link href="/SignUp">Sign Up </Link>
           </p>
-          <BsFacebook style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
+          <BsGoogle style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
         </div>
       </div>
     </div>

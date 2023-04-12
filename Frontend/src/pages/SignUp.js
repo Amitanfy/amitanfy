@@ -6,7 +6,7 @@ import ValidateEmail from "@/common/validateEmail";
 import { useRouter } from "next/router";
 import { useSession, signIn } from 'next-auth/react'
 import { UserContext } from "@/common/userContext";
-import { BsFacebook } from "react-icons/bs";
+import { BsFacebook, BsGoogle } from "react-icons/bs";
 export default function SignUp() {
   const { data: session } = useSession();
   const [username, setUsername] = useState("");
@@ -54,7 +54,7 @@ export default function SignUp() {
   };
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn();
+    signIn('google');
   };
   if(!stage)
   return (
@@ -118,7 +118,7 @@ export default function SignUp() {
             Already have an account? <br />
             <Link href="/SignIn">Sign In</Link>
           </p>
-          <BsFacebook style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
+          <BsGoogle style={{cursor:"pointer"}} onClick={handleSignin} size="1.5rem"/>
 
         </div>
       </div>
