@@ -4,6 +4,7 @@ import { Inter } from "next/font/google";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { useContext } from "react";
 import { UserContext } from "@/common/userContext";
+import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,7 @@ export default function Home() {
         <button>Sign out</button>
       </a>
       {session ? <img src={session.user.image}></img> : null}
+      <Link href="/PostPet">Upload</Link>
     </div>
   );
 }
