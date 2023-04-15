@@ -49,6 +49,7 @@ export default function Home() {
         </div>
       </div>
       <div className={styles.main}>
+        <div className={styles.backimg}></div>
         <div className={styles.searchOptions}>
           <input
             className={styles.searchPet}

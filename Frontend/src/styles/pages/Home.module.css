@@ -60,6 +60,7 @@
   align-items: center;
   margin-top: 40px;
   border-radius: 10px;
+  z-index: 1;
 }
 .searchPet {
   width: 46%;
@@ -105,20 +106,23 @@
 .header {
   font-size: 45px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #6505b5;
+  color: white;
   margin-top: 60px;
   font-weight: bold;
+  z-index: 1;
 }
 .underHeader {
   font-size: 20px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  color: #6505b5;
+  color: white;
   margin-top: 10px;
+  z-index: 1;
 }
 .finder {
   display: flex;
   margin-top: 60px;
   gap: 17px;
+  z-index: 1;
 }
 .petsAv {
   color: #6505b5;
@@ -343,4 +347,11 @@
 }
 .icon2 {
   font-size: 70px;
+}
+.backimg {
+  width: 100%;
+  height: 38vh;
+  position: absolute;
+  background-image: url("https://www.petfinder.com/sites/default/files/styles/hero_image_1140_410/public/images/content/1140%20hero%20image_0.jpg?itok=wryBzVcI");
+  z-index: 0;
 }
