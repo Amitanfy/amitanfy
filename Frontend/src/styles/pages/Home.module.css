@@ -1,6 +1,5 @@
 .outer {
   width: 100vw;
-  height: 93.5vh;
 }
 .dropdowns {
   width: 100%;
@@ -47,7 +46,7 @@
 }
 .main {
   width: 100%;
-  height: 200vh;
+  height: 217vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -115,15 +114,6 @@
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   color: #6505b5;
   margin-top: 10px;
-}
-.dogs {
-  width: 190px;
-  height: 180px;
-  border-radius: 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
 }
 .finder {
   display: flex;
@@ -196,6 +186,7 @@
   font-size: 18px;
   font-weight: 600;
   margin-top: 70px;
+  transition: 200ms;
 }
 .planningHeaderUnder2 {
   width: 320px;
@@ -204,4 +195,152 @@
   margin-top: 10px;
   text-align: center;
   line-height: 22px;
+}
+.learnMore:hover {
+  background-color: #5a4ff4;
+  color: white;
+  transition: 200ms;
+}
+.articles {
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.articlesMain {
+  display: flex;
+  gap: 20px;
+}
+.article1 {
+  width: 600px;
+  height: 450px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.article2 {
+  width: 600px;
+  height: 450px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.articlesHeader {
+  color: #6505b5;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 45px;
+  margin-bottom: 30px;
+}
+.articleImg {
+  width: 100%;
+  height: 87%;
+  border-radius: 10px 10px 0px 0px;
+  background-image: url("https://www.petfinder.com/sites/default/files/styles/card/public/images/content/47.jpeg?itok=HNT_yv1F");
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.articleImg2 {
+  width: 100%;
+  height: 87%;
+  border-radius: 10px 10px 0px 0px;
+  background-image: url("https://www.petfinder.com/sites/default/files/styles/card/public/images/content/PF2015_267_Kittens_Shelter-630.jpg?itok=JGTdJJaD");
+  background-size: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+}
+.articleReadMore {
+  width: 100%;
+  height: 12%;
+  background-color: white;
+  border-radius: 0px 0px 10px 10px;
+  border-top: 1px solid lightgrey;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #4d4651;
+  font-weight: 600;
+  transition: 200ms;
+}
+.underPicWhite {
+  width: 100%;
+  height: 120px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: #534c57;
+  line-height: 25px;
+}
+.filler {
+  width: 100%;
+  height: 20px;
+  border-radius: 50% 50% 0px 0px;
+  background-color: white;
+}
+.middleDog {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  position: absolute;
+  margin-top: 60px;
+  border: 6px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.middledogimg {
+  width: 200px;
+  height: 90px;
+  border-radius: 50%;
+}
+.lightgrey {
+  color: gray;
+}
+.margintop {
+  margin-top: 10px;
+  font-size: 23px;
+}
+.article1:hover > .articleReadMore {
+  background-color: #5a4ff4;
+  color: white;
+  transition: 200ms;
+}
+.article2:hover > .articleReadMore {
+  background-color: #5a4ff4;
+  color: white;
+  transition: 200ms;
+}
+.container {
+  width: 190px;
+  height: 180px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  gap: 20px;
+}
+.container:hover {
+  border: 2px solid #5a4ff4;
+  background-color: rgb(234, 234, 234);
+}
+.icon {
+  font-size: 80px;
+}
+.icon2 {
+  font-size: 70px;
 }

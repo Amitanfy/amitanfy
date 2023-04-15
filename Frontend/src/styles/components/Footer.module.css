@@ -1,0 +1,100 @@
+.outer {
+  width: 100vw;
+  height: 45vh;
+  background-color: #5a4ff4;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  width: 100%;
+  height: 85%;
+}
+.logo {
+  margin-bottom: 10px;
+}
+.upper {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 20%;
+}
+.middle {
+  width: 100%;
+  height: 60%;
+  display: flex;
+  padding-left: 20%;
+  gap: 40px;
+}
+.bottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 100;
+  font-size: 14px;
+  color: white;
+}
+.footer {
+  width: 100%;
+  height: 15%;
+  background-color: darkblue;
+  padding-left: 20%;
+  display: flex;
+  align-items: center;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  color: white;
+  font-weight: 100;
+  font-size: 14px;
+}
+.RESOURCES {
+  display: flex;
+  flex-direction: column;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 25px;
+}
+.Header {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.card {
+  width: 350px;
+  height: 170px;
+  background-color: white;
+  color: #5a4ff4;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.Sign {
+  width: 250px;
+  height: 50px;
+  background-color: #5a4ff4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border-radius: 100px;
+}
+.cardWord {
+  width: 80%;
+  line-height: 22px;
+}
+.icons {
+  display: flex;
+  color: white;
+  gap: 30px;
+  margin-left: 400px;
+}
+.icon {
+  font-size: 25px;
+}

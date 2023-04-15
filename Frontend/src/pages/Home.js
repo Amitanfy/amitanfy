@@ -1,6 +1,10 @@
 import styles from "../styles/pages/Home.module.css";
 import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
+import { FaCat, FaDog } from "react-icons/fa";
+import { IoMdPaw } from "react-icons/io";
+import { BsFillHouseHeartFill } from "react-icons/bs";
 
 export default function Home() {
   return (
@@ -64,10 +68,41 @@ export default function Home() {
           Browse pets from our network of over 11,500 shelters and rescues
         </div>
         <div className={styles.finder}>
-          <div className={styles.dogs}></div>
-          <div className={styles.dogs}></div>
-          <div className={styles.dogs}></div>
-          <div className={styles.dogs}></div>
+          <div className={styles.container}>
+            <div>
+              <FaDog className={styles.icon} />
+            </div>
+            <div>
+              <div>Dogs</div>
+            </div>
+          </div>
+
+          <div className={styles.container}>
+            <div>
+              <FaCat className={styles.icon2} />
+            </div>
+            <div>
+              <div>Cats</div>
+            </div>
+          </div>
+
+          <div className={styles.container}>
+            <div>
+              <IoMdPaw className={styles.icon} />
+            </div>
+            <div>
+              <div>Other Animals</div>
+            </div>
+          </div>
+
+          <div className={styles.container}>
+            <div>
+              <BsFillHouseHeartFill className={styles.icon} />
+            </div>
+            <div>
+              <div>Shelters & Rescues</div>
+            </div>
+          </div>
         </div>
         <div className={styles.petsAv}>Pets Available for Adoption Nearby</div>
         <div className={styles.petsAVApics}>
@@ -114,7 +149,50 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div className={styles.articles}>
+          <div className={styles.articlesHeader}>Articles</div>
+          <div className={styles.articlesMain}>
+            <div className={styles.article1}>
+              <div className={styles.middleDog}>
+                <img
+                  className={styles.middledogimg}
+                  src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/47.jpeg?itok=HNT_yv1F"
+                ></img>
+              </div>
+              <div className={styles.articleImg}>
+                <div className={styles.filler}></div>
+                <div className={styles.underPicWhite}>
+                  <div className={styles.margintop}>Dog Adoption Articles</div>
+                  <div className={styles.lightgrey}>
+                    Learn more about caring for your new dog.
+                  </div>
+                </div>
+              </div>
+              <div className={styles.articleReadMore}>READ MORE</div>
+            </div>
+
+            <div className={styles.article2}>
+              <div className={styles.middleDog}>
+                <img
+                  className={styles.middledogimg}
+                  src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/PF2015_267_Kittens_Shelter-630.jpg?itok=JGTdJJaD"
+                ></img>
+              </div>
+              <div className={styles.articleImg2}>
+                <div className={styles.filler}></div>
+                <div className={styles.underPicWhite}>
+                  <div className={styles.margintop}>Cat Adoption Articles</div>
+                  <div className={styles.lightgrey}>
+                    Helpful insights on what we expect you too see.
+                  </div>
+                </div>
+              </div>
+              <div className={styles.articleReadMore}>READ MORE</div>
+            </div>
+          </div>
+        </div>
       </div>
+      <Footer />
     </div>
   );
 }
