@@ -1,0 +1,109 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(230, 230, 230);
+}
+
+.contentCon {
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+}
+
+.sort {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    /* justify-content: center; */
+    border: 1px solid black;
+    flex-direction: column;
+    gap: 20px;
+    padding-top: 30px;
+}
+
+.post {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+
+}
+
+.sortText {
+    font-size: medium;
+    font-weight: 700;
+    font-family: inherit;
+}
+
+.miniSortCon {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    gap: 4px;
+    background-color: aquamarine;
+    position: relative;
+}
+
+.sortOption {
+    width: 100%;
+    height: 40%;
+    border: 1px solid black;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    transition: 100ms;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.option{
+    width: 100%;
+    height: 100%;
+    background-color: antiquewhite;
+    border-bottom: 1px solid black;
+    border-top: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.Accordition{
+    height: 40px;
+
+}
+.Text{
+    font-size: smaller;
+    font-weight: 100;
+    font-family: Nexa Regular,arial,helvetica,sans-serif;
+}
+.sortAnyText{
+    font-family: Nexa Bold,arial,helvetica,sans-serif;
+}
+.arrowIconRotated{
+    transform: rotate(180deg);
+}
+.arrowIconNotRotated{
+    transform: rotate(0deg);
+}
+.AccorditionCon{
+    height: 20vh;
+    width: auto;
+    position: absolute;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    border: 1px black solid;
+}

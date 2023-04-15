@@ -2,7 +2,7 @@ import styles from "../styles/components/Navbar.module.css";
 import { BsArrowUpShort } from "react-icons/bs";
 import { AiFillHeart } from "react-icons/ai";
 
-export const Navbar = () => {
+export default function Navbar() {
   return (
     <div className={styles.outer}>
       <div className={styles.left}>
