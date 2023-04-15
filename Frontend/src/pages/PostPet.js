@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 export default function PostPet() {
@@ -5,16 +6,14 @@ export default function PostPet() {
   const [text, setText] = useState("");
   const baseurl = "http://localhost:3030/";
 
-  useEffect(() => {
-    console.log(image);
-  }, [image]);
+  useEffect(() => {}, [image]);
 
   const handleclick = () => {
     if (image === null) return;
     var bodyFormData = new FormData();
     bodyFormData.append("name", "textimage");
     bodyFormData.append("text", text);
-    bodyFormData.append("image", image);
+    bodyFormData.append("testImage", image);
     axios({
       method: "post",
       url: baseurl + "PostPet",
@@ -32,13 +31,8 @@ export default function PostPet() {
   return (
     <div>
       <input
-        id="imgInp"
         onChange={(e) => {
-          const reader = new FileReader();
-          reader.onload = (e) => {
-            setImage(reader.result);
-          };
-          reader.readAsDataURL(e.target.files[0]);
+          setImage(e.target.files[0]);
         }}
         type="file"
       />
