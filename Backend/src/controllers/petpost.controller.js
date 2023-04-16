@@ -3,6 +3,8 @@ const petPostModel = require("../models/petpost.model");
 const multer = require("multer");
 const fs = require("fs");
 
+
+//storage declaration
 const Storage = multer.diskStorage({
   destination: "temp",
   filename: (req, file, cb) => {
@@ -11,17 +13,19 @@ const Storage = multer.diskStorage({
 });
 const upload = multer({
   storage: Storage,
-}).single("testImage");
+}).array("testImage");
 exports.postpet = (req, res) => {
   try {
     upload(req, res, (err) => {
       if (err) {
         console.log(err);
       } else {
+        console.log(req.body)
+
         const newImage = new petPostModel({
           name: req.body.name,
           image: {
-            data: req.file.filename,
+            data: req.files,
             contentType: "image/jpeg",
           },
           text: req.body.text,

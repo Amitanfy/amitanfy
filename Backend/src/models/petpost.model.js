@@ -8,7 +8,7 @@ const petPostSchema = new Schema({
     type: String,
   },
   image: {
-    data: Buffer,
+    data: Array,
     contentType: String,
   },
 });
