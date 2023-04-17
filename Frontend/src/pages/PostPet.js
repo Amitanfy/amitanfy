@@ -8,10 +8,7 @@ export default function PostPet() {
   const [text, setText] = useState("");
   const baseurl = "http://localhost:3030/";
 
-  useEffect(()=>{
-    console.log(file);
-    console.log(image)
-  },[image,file])
+
 
   const handleclick = () => {
     if (image === null) return;
@@ -39,6 +36,7 @@ export default function PostPet() {
         onChange={(e) => {
           for(let i = 0;i < e.target.files.length;i++){
             const reader = new FileReader();
+            console.log(e.target.files[i])
             setFile((prev)=>[...prev, e.target.files[i]]);
             reader.readAsDataURL(e.target.files[i]);
             reader.onload = () =>{

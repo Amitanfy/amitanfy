@@ -20,7 +20,7 @@ exports.postpet = (req, res) => {
       if (err) {
         console.log(err);
       } else {
-        console.log(req.body)
+        console.log(req.files)
 
         const newImage = new petPostModel({
           name: req.body.name,
@@ -53,3 +53,13 @@ exports.postpet = (req, res) => {
     console.log(err);
   }
 };
+
+exports.getPosts = async(req,res) =>{
+  const body = await petPostModel.find({});
+  res.send(body)
+}
+
+exports.deletePetPosts = async(req,res) => {
+  await petPostModel.deleteMany({});
+  res.send('all deleted')
+}

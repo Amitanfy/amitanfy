@@ -1,7 +1,7 @@
 const express = require("express");
-const { postpet } = require("../controllers/petpost.controller");
+const { postpet, deletePetPosts, getPosts } = require("../controllers/petpost.controller");
 const petPostRouter = express.Router();
 
-petPostRouter.get("/petPosts").post("/PostPet", postpet);
+petPostRouter.get("/PetPosts",getPosts).post("/PostPet", postpet).delete('/delallposts', deletePetPosts);
 
 module.exports = petPostRouter;
