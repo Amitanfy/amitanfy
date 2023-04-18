@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "../styles/pages/Search.module.css";
 import Navbar from "../components/Navbar"
+import Post from "../components/Post"
 export default function Search() {
     const [isAgeAccordionOpen, setIsAgeAccordionOpen] = useState(false);
     const [isBreedAccordionOpen, setIsBreedAccordionOpen] = useState(false);
@@ -159,7 +160,19 @@ export default function Search() {
                         </div>
 
                     </div>
-                    <div className={styles.post}></div>
+                    <div className={styles.post}>
+                        {
+                            mockArr && mockArr.map((item, index) => (
+                                <Post key={index}></Post>
+                            ))
+
+                        }
+
+                        <div className={styles.bottom}>
+                            <div className={styles.next}>Next  </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
