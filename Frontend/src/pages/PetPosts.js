@@ -8,7 +8,7 @@ export default function petPosts() {
     axios
       .get(baseurl + "PetPosts")
       .then((res) => {
-        console.log(res);
+        console.log(res.data[0]);
         const arr = [];
         for (let i = 0; i < res.data.length; i++) arr[i] = res.data[i];
         setPosts(arr);
@@ -20,9 +20,9 @@ export default function petPosts() {
     <div>
       {posts.map((x, i) => {
         const reader = new FileReader();
-        const b64 = Buffer.from(x.image.data.data).toString("base64");
+        const thumbnail = Buffer.from(x.data[0]).toString("base64");
         const mimeType = "image/jpeg";
-        return <img src={`data:${mimeType};base64,${b64}`}></img>;
+        return <img src={`data:${mimeType};base64,${thumbnail}`}></img>;
       })}
     </div>
   );
