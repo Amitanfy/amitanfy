@@ -7,9 +7,11 @@ const petPostSchema = new Schema({
   text: {
     type: String,
   },
-  image: {
-    data: Array,
-    contentType: String,
-  },
+  data: [
+    {
+      type: Buffer,
+      contentType: String,
+    },
+  ],
 });
 module.exports = model("petPost", petPostSchema);
