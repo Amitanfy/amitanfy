@@ -4,6 +4,14 @@ const petPostSchema = new Schema({
   name: {
     type: String,
   },
+  type:{
+    type: String,
+    default:"cat"
+  },
+  breed:{
+    type:String,
+    default:"british shorthair"
+  },
   text: {
     type: String,
   },

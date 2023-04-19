@@ -1,3 +1,4 @@
+import Post from "@/components/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -22,7 +23,7 @@ export default function petPosts() {
         const reader = new FileReader();
         const thumbnail = Buffer.from(x.data[0]).toString("base64");
         const mimeType = "image/jpeg";
-        return <img src={`data:${mimeType};base64,${thumbnail}`}></img>;
+        return <Post img={`data:${mimeType};base64,${thumbnail}`} name={x.text} type={x.type} breed = {x.breed}/>
       })}
     </div>
   );

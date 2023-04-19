@@ -22,9 +22,8 @@ export default function SignIn() {
 
   useEffect(()=>{
     session?router.push("/"):null;
-    console.log(process.env.NEXTAUTH_URL)
   },[session])
-
+  console.log(user)
   const verifyAccount = (val) => {
     axios.put(baseurl + "verifyuser?code=" + val + "&user=" + username).then((res)=>{
       setuser(res.data)
@@ -42,6 +41,8 @@ export default function SignIn() {
     axios
       .post(baseurl + "signin", body)
       .then((res) => {
+        console.log(res.data)
+        localStorage.setItem('user',res.data);
         setuser(res.data)
         router.push("/")
       })

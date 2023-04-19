@@ -5,13 +5,14 @@ import { useSession, signIn, signOut } from "next-auth/react";
 import { useContext } from "react";
 import { UserContext } from "@/common/userContext";
 import Link from "next/link";
+import jwtDecode from "jwt-decode";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   const { data: session } = useSession();
   const { user, setuser } = useContext(UserContext);
-  console.log(session);
+  console.log(jwtDecode(user));
   const handleSignout = (e) => {
     e.preventDefault();
     signOut();
