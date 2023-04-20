@@ -1,8 +1,10 @@
+import { UserContext } from "@/common/userContext";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "../styles/pages/Postpet.module.css";
 
 export default function PostPet() {
+  const { user, decoded } = useContext(UserContext);
   const [file, setFile] = useState([]);
   const [image, setImage] = useState([]);
   const [text, setText] = useState("");
@@ -11,6 +13,7 @@ export default function PostPet() {
   const handleclick = () => {
     if (image === null) return;
     var bodyFormData = new FormData();
+    bodyFormData.append("authorId", decoded.uid);
     bodyFormData.append("name", "textimage");
     bodyFormData.append("text", text);
     for (const files of file) bodyFormData.append("testImage", files);

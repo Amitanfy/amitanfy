@@ -6,8 +6,17 @@ const nodemailer = require("nodemailer");
 const validator = require("email-validator");
 const { sendMail } = require("../common/sendmail.js");
 exports.signUp = async (req, res) => {
-  if(!validator.validate(req.body.email)){res.status(409).json( {messege: 'valid email please'}).end(); return}
-  if(await User.findOne({username: req.body.username}) || await User.findOne({email: req.body.email})){res.status(409).json({messege:'username or email in use'}).end(); return}
+  if (!validator.validate(req.body.email)) {
+    res.status(409).json({ messege: "valid email please" }).end();
+    return;
+  }
+  if (
+    (await User.findOne({ username: req.body.username })) ||
+    (await User.findOne({ email: req.body.email }))
+  ) {
+    res.status(409).json({ messege: "username or email in use" }).end();
+    return;
+  }
   const code = Math.floor(Math.random() * 9999) + 1000;
   bcrypt.hash(req.body.pass, 10, (err, hash) => {
     User.create({
@@ -18,7 +27,7 @@ exports.signUp = async (req, res) => {
       code: code,
     })
       .then((user) => {
-        sendMail(req.body.email,code)
+        sendMail(req.body.email, code);
         res.send(user);
       })
       .catch((err) => console.log(err));
@@ -33,20 +42,22 @@ exports.signIn = async (req, res) => {
   try {
     const user = await User.findOne({ username: username });
     if (user) {
-      if (!user.confirmed)
-        {sendMail(user.email,user.code);res.status(409).json({ messege: "verify your email" }).end(); return}
+      if (!user.confirmed) {
+        sendMail(user.email, user.code);
+        res.status(409).json({ messege: "verify your email" }).end();
+        return;
+      }
       bcrypt.compare(pass, user.pass, (err, results) => {
         if (results) {
           const token = getToken(user.username, user._id, user.role);
           console.log(token);
           res.send(token);
-        } 
+        }
       });
-    }
-    else {
+    } else {
       res.status(409).json({ messege: "username or pass is incorrect" }).end();
-      return
-    } 
+      return;
+    }
   } catch (err) {
     console.log(err);
   }
@@ -64,20 +75,25 @@ exports.removeUser = async (req, res) => {
   await User.deleteOne({ _id: id });
   res.send("deleted");
 };
-exports.verifyUser = async(req, res) =>{
+exports.verifyUser = async (req, res) => {
   const code = req.query.code;
   const username = req.query.user;
   try {
-    const user = await User.findOneAndUpdate({username:username,code:code},{
-      confirmed : true
-    });
-    user?res.send(getToken(user.username, user._uid, user.role)):res.status(409).json({ messege: "incorrect code" }).end();
+    const user = await User.findOneAndUpdate(
+      { username: username, code: code },
+      {
+        confirmed: true,
+      }
+    );
+    user
+      ? res.send(getToken(user.username, user._uid, user.role))
+      : res.status(409).json({ messege: "incorrect code" }).end();
   } catch (error) {
     console.log(error);
     res.send(error.messege);
   }
-}
-exports.deleteUsers = async(req,res) => {
-  await User.deleteMany({role:'user'});
-  res.send('all deleted')
-}
+};
+exports.deleteUsers = async (req, res) => {
+  await User.deleteMany({ role: "user" });
+  res.send("all deleted");
+};

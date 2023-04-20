@@ -36,6 +36,7 @@ exports.postpet = (req, res) => {
           name: req.body.name,
           data: arr,
           text: req.body.text,
+          author: req.body.authorId,
         });
         newImage
           .save()
@@ -65,6 +66,16 @@ exports.postpet = (req, res) => {
 exports.getPosts = async (req, res) => {
   const body = await petPostModel.find({});
   res.send(body);
+};
+exports.getPost = async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log(id);
+    const body = await petPostModel.find({ _id: id });
+    res.send(body);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 exports.deletePetPosts = async (req, res) => {

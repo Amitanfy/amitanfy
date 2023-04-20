@@ -1,21 +1,17 @@
-import { SessionProvider, useSession } from "next-auth/react"
-import '../styles/globals.css'
-import { UserContext } from "@/common/userContext"
-import { useEffect, useState } from "react"
+import { SessionProvider, useSession } from "next-auth/react";
+import "../styles/globals.css";
+import { UserContext, UserProvider } from "@/common/userContext";
+import { useEffect, useState } from "react";
+import jwtDecode from "jwt-decode";
 
 function MyApp({ Component, pageProps }) {
-  const [user,setuser]=useState();
-  useEffect(()=>{
-    const item = localStorage.getItem('user')
-    setuser(item)
-  },[])
   return (
-    <UserContext.Provider value={{user,setuser}}>
-    <SessionProvider session={pageProps.session}>
-      <Component {...pageProps} />
-    </SessionProvider>
-    </UserContext.Provider>
-  )
+    <UserProvider>
+      <SessionProvider session={pageProps.session}>
+        <Component {...pageProps} />
+      </SessionProvider>
+    </UserProvider>
+  );
 }
 
-export default MyApp
+export default MyApp;
