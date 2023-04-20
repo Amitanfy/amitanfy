@@ -34,10 +34,12 @@
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
   pointer-events: none;
   margin-top: 19px;
+  z-index: 2;
 }
 .dropdownText:hover + .dropdownContent {
   transform: translateY(0);
   opacity: 1;
+  z-index: 2;
 }
 .lorem {
   padding: 12px;
@@ -248,7 +250,7 @@
   background-image: url("https://www.petfinder.com/sites/default/files/styles/card/public/images/content/47.jpeg?itok=HNT_yv1F");
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
 }
 .articleImg2 {
   width: 100%;
