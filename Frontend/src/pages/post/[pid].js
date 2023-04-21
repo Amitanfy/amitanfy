@@ -3,11 +3,12 @@ import axios from "axios";
 import { useRouter } from "next/router";
 export default function Post() {
   const router = useRouter();
-  const [post, setPost] = useState();
+  const [post, setPost] = useState(null);
   const baseurl = "http://localhost:3030/";
   useEffect(() => {
     if (router.isReady) {
       const { pid } = router.query;
+      console.log(router.query)
       axios
         .get(baseurl + "PetPost/" + pid)
         .then((res) => {
@@ -19,8 +20,10 @@ export default function Post() {
         });
     }
   }, []);
-  // const thumbnail = Buffer.from(post.data[0].data).toString("base64");
-  // const mimeType = "image/jpeg";
+  if (post!==null) {
+  const thumbnail = Buffer.from(post.data[0].data).toString("base64");
+  const mimeType = "image/jpeg";
 
-  // return <img src={`data:${mimeType};base64,${thumbnail}`}></img>;
+  return <img src={`data:${mimeType};base64,${thumbnail}`}></img>;
+  }
 }
