@@ -3,6 +3,7 @@ const cors = require("cors");
 const connect = require("./db.js");
 const userRouter = require("./routes/user.router.js");
 const petPostRouter = require("./routes/petpost.router.js");
+const petAdviceRouter = require("./routes/advice.router.js");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 require("dotenv").config();
@@ -21,6 +22,7 @@ app.use(
 
 app.use(userRouter);
 app.use(petPostRouter);
+app.use(petAdviceRouter);
 
 connect();
 
