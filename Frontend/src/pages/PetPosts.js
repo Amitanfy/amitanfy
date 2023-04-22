@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function petPosts() {
   const [posts, setPosts] = useState([]);
-  const baseurl = "http://localhost:3030/";
+  const baseurl = "https://amitanfy.onrender.com/";
   useEffect(() => {
     axios
       .get(baseurl + "PetPosts")

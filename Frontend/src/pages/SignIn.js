@@ -18,7 +18,7 @@ export default function SignIn() {
   const { user, decoded } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseurl = "http://localhost:3030/";
+  const baseurl = "https://amitanfy.onrender.com/";
 
   useEffect(() => {
     session ? router.push("/") : null;
@@ -110,16 +110,18 @@ export default function SignIn() {
               Don't have an account yet? <br />
               <Link href="/SignUp">Sign Up </Link>
             </p>
-            <BsGoogle
-              style={{ cursor: "pointer" }}
-              onClick={handleSignin}
-              size="1.5rem"
-            />
-            <BsFacebook
-              style={{ cursor: "pointer" }}
-              onClick={handleSignin2}
-              size="1.5rem"
-            />
+            <div>
+              <BsGoogle
+                style={{ cursor: "pointer" }}
+                onClick={handleSignin}
+                size="1.5rem"
+              />
+              <BsFacebook
+                style={{ cursor: "pointer" }}
+                onClick={handleSignin2}
+                size="1.5rem"
+              />
+            </div>
           </div>
         </div>
       </div>

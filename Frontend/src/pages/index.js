@@ -9,12 +9,16 @@ import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Post from "@/components/Post";
 import { UserContext } from "@/common/userContext";
+import { useSession, signIn, signOut } from "next-auth/react";
+import { Router, useRouter } from "next/router";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const { user, decoded } = useContext(UserContext);
-  const baseUrl = "http://localhost:3030/";
-  console.log(decoded);
+  const { data: session } = useSession();
+  const baseUrl = "https://amitanfy.onrender.com/";
+  const router = useRouter();
+  console.log(session);
   useEffect(() => {
     const arr = [];
     axios
@@ -90,7 +94,12 @@ export default function Home() {
           Browse pets from our network of over 11,500 shelters and rescues
         </div>
         <div className={styles.finder}>
-          <div className={styles.container}>
+          <div
+            onClick={() => {
+              router.push("/PetPosts");
+            }}
+            className={styles.container}
+          >
             <div>
               <FaDog className={styles.icon} />
             </div>
@@ -99,7 +108,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.container}>
+          <div
+            onClick={() => {
+              router.push("/PetPosts");
+            }}
+            className={styles.container}
+          >
             <div>
               <FaCat className={styles.icon2} />
             </div>
@@ -108,7 +122,12 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.container}>
+          <div
+            onClick={() => {
+              router.push("/PetPosts");
+            }}
+            className={styles.container}
+          >
             <div>
               <IoMdPaw className={styles.icon} />
             </div>

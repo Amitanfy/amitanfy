@@ -8,7 +8,7 @@ export default function PostPet() {
   const [file, setFile] = useState([]);
   const [image, setImage] = useState([]);
   const [text, setText] = useState("");
-  const baseurl = "http://localhost:3030/";
+  const baseurl = "https://amitanfy.onrender.com/";
 
   const handleclick = () => {
     if (image === null) return;

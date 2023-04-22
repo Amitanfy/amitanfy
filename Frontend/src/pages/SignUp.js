@@ -19,7 +19,7 @@ export default function SignUp() {
   const { user, setuser } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseurl = "http://localhost:3030/";
+  const baseurl = "https://amitanfy.onrender.com/";
 
   useEffect(() => {
     session ? router.push("/") : null;
@@ -60,6 +60,10 @@ export default function SignUp() {
   const handleSignin = (e) => {
     e.preventDefault();
     signIn("google");
+  };
+  const handleSignin2 = (e) => {
+    e.preventDefault();
+    signIn("facebook");
   };
   if (!stage)
     return (
@@ -123,11 +127,18 @@ export default function SignUp() {
               Already have an account? <br />
               <Link href="/SignIn">Sign In</Link>
             </p>
-            <BsGoogle
-              style={{ cursor: "pointer" }}
-              onClick={handleSignin}
-              size="1.5rem"
-            />
+            <div>
+              <BsGoogle
+                style={{ cursor: "pointer" }}
+                onClick={handleSignin}
+                size="1.5rem"
+              />
+              <BsFacebook
+                style={{ cursor: "pointer" }}
+                onClick={handleSignin2}
+                size="1.5rem"
+              />
+            </div>
           </div>
         </div>
       </div>
