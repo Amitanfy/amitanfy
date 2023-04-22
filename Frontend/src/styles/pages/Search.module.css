@@ -96,6 +96,7 @@
     user-select: none;
 }
 .AccorditionCon{
+    top: 30px;
     height: 20vh;
     width: auto;
     position: absolute;
@@ -124,4 +125,36 @@
     justify-content: end;
     align-items: end;
     padding-right: 100px;
+}
+.headerSort{
+    height: 5vh;
+    width: 100vw;
+    background-color: #6505b5;
+    display: flex;
+    justify-content: center;
+}
+.headerSortCon{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    background-color: aqua;
+}
+.petGenre{
+    width: 20%;
+    height: 100%;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Province{
+    width: 10%;
+    height: 80%;
+    background-color: blue;
+}
+.petGenreOption{
+    width: 60%;
+    height: 80%;
+    background-color: blueviolet;
 }
