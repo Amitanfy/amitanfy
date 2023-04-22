@@ -86,7 +86,7 @@ exports.verifyUser = async (req, res) => {
       }
     );
     user
-      ? res.send(getToken(user.username, user._uid, user.role))
+      ? res.send(getToken(user.username, user._id, user.role))
       : res.status(409).json({ messege: "incorrect code" }).end();
   } catch (error) {
     console.log(error);

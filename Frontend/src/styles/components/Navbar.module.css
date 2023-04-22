@@ -32,7 +32,6 @@
   width: 30px;
   height: 30px;
   color: #4d4650;
-
 }
 .navbarVerticalLine {
   width: 1px;
@@ -43,9 +42,11 @@
   font-family: "Nexa-Bold", arial, helvetica, sans-serif;
   font-weight: bold;
   color: #4d4651;
+  cursor: pointer;
 }
 .navbarLog {
   font-family: "Nexa-Bold", arial, helvetica, sans-serif;
   font-weight: bold;
   color: #4d4651;
+  cursor: pointer;
 }
