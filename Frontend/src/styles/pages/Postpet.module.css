@@ -10,3 +10,12 @@
   align-items: center;
   gap: 10px;
 }
+.breedpage {
+  display: flex;
+}
+.images {
+  max-height: 10vh;
+}
+.buttons {
+  max-height: 5vh;
+}

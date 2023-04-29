@@ -16,7 +16,8 @@ export default function Home() {
   const [posts, setPosts] = useState([]);
   const { user, decoded } = useContext(UserContext);
   const { data: session } = useSession();
-  const baseUrl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
   const router = useRouter();
   console.log(session);
   useEffect(() => {
@@ -155,7 +156,7 @@ export default function Home() {
                 key={x._id}
                 id={x._id}
                 img={`data:${mimeType};base64,${thumbnail}`}
-                name={x.text}
+                name={x.name}
                 type={x.type}
                 breed={x.breed}
               />

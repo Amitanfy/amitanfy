@@ -4,13 +4,14 @@ import { useRouter } from "next/router";
 export default function Post() {
   const router = useRouter();
   const [post, setPost] = useState(null);
-  const baseurl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
   useEffect(() => {
     if (router.isReady) {
       const { pid } = router.query;
       console.log(router.query);
       axios
-        .get(baseurl + "PetPost/" + pid)
+        .get(baseUrl + "PetPost/" + pid)
         .then((res) => {
           setPost(res.data[0]);
           console.log(res.data[0].data[0].data);

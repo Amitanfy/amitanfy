@@ -12,9 +12,12 @@ export default function PostPet() {
   const [type, setType] = useState(null);
   const [breeds, setBreeds] = useState(null);
   const [breed, setBreed] = useState(null);
-  const baseurl = "https://amitanfy.onrender.com/";
+  const [temp, setTemp] = useState(null);
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
 
   const handleclick = () => {
+    console.log(breed);
     console.log(decoded);
     if (image === null) return;
     var bodyFormData = new FormData();
@@ -26,7 +29,7 @@ export default function PostPet() {
     for (const files of file) bodyFormData.append("testImage", files);
     axios({
       method: "post",
-      url: baseurl + "PostPet",
+      url: baseUrl + "PostPet",
       data: bodyFormData,
       headers: { "Content-Type": "multipart/form-data" },
     })
@@ -38,43 +41,74 @@ export default function PostPet() {
       });
   };
 
+  const handleCat = () => {
+    setType("cat");
+    axios
+      .get("https://api.thecatapi.com/v1/breeds", {
+        headers: {
+          "x-api-key":
+            "live_fd6kTpGPF7MQFsv5MWE8rS1I31kbQFikB4WYMEsfx6hzF6uMPQzLDQV4MxLo0Uy6",
+        },
+      })
+      .then((res) => console.log(setBreeds(res.data)));
+  };
   const handleDog = () => {
     setType("dog");
     axios
-      .get("https://api.thedogapi.com/v1/breeds/")
+      .get("https://api.thedogapi.com/v1/breeds", {
+        headers: {
+          "x-api-key":
+            "live_Y5R8rSzcsVpEbKph6DXfrc8n2wBg5D0iJcLbMQeXH1NbdLVXPl5PffRiBMpGlPQ6",
+        },
+      })
       .then((res) => console.log(setBreeds(res.data)));
   };
-
   return (
     <div>
       {!breeds ? (
         <div className={styles.backdrop}>
-          <div>cat</div>
+          <div onClick={handleCat}>cat</div>
           <div onClick={handleDog}>dog</div>
         </div>
       ) : !breed ? (
-        breeds.map((x, i) => {
-          return (
-            <div
-              key={x.name}
-              onClick={() => {
-                setBreed(x.name);
-              }}
-            >
-              {x.name}
-            </div>
-          );
-        })
+        <div className={styles.breedpage}>
+          <div>
+            {breeds.map((x, i) => {
+              return (
+                <div
+                  key={x.name}
+                  onClick={() => {
+                    setTemp(x);
+                  }}
+                >
+                  {x.name}
+                </div>
+              );
+            })}
+          </div>
+          <button
+            className={styles.buttons}
+            onClick={() => {
+              setBreed(temp.name);
+            }}
+          >
+            submit
+          </button>
+          <img
+            className={styles.images}
+            src={temp ? temp.image.url : null}
+          ></img>
+        </div>
       ) : !name ? (
         <>
-          <input
-            value={name}
-            onChange={(e) => {
-              setName(e.target.value);
+          <input id="name" placeholder="name"></input>
+          <button
+            onClick={() => {
+              setName(document.getElementById("name").value);
             }}
-            placeholder="name"
-          ></input>
-          <button>submit</button>
+          >
+            submit
+          </button>
         </>
       ) : image.length === 0 ? (
         <input
@@ -94,13 +128,16 @@ export default function PostPet() {
           multiple
         />
       ) : !text ? (
-        <input
-          value={text}
-          onChange={(e) => {
-            setText(e.target.value);
-          }}
-          placeholder="text"
-        />
+        <>
+          <input id="text" placeholder="text" />
+          <button
+            onClick={() => {
+              setText(document.getElementById("text").value);
+            }}
+          >
+            submit
+          </button>
+        </>
       ) : (
         <div>
           {image.map((x, i) => (
