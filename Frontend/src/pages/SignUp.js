@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "../styles/pages/sign.module.css";
 import Link from "next/link";
-import ValidateEmail from "@/common/validateEmail";
 import { useRouter } from "next/router";
 import { useSession, signIn } from "next-auth/react";
 import { UserContext } from "@/common/userContext";

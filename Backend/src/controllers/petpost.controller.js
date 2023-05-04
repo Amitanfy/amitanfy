@@ -24,7 +24,6 @@ exports.postpet = (req, res) => {
       } else {
         const arr = [];
         for (let i = 0; i < req.files.length; i++) {
-          console.log(__dirname.substring(0, __dirname.lastIndexOf("/")));
           arr[i] = fs.readFileSync(
             path.join(
               __dirname.substring(0, __dirname.lastIndexOf("/")) +

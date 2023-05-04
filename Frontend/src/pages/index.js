@@ -19,7 +19,11 @@ export default function Home() {
   // const baseUrl = "https://amitanfy.onrender.com/";
   const baseUrl = "http://localhost:3030/";
   const router = useRouter();
-  console.log(session);
+
+  useEffect(() => {
+    session ? console.log(session) : null;
+  }, [session]);
+
   useEffect(() => {
     const arr = [];
     axios
