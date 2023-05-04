@@ -24,7 +24,6 @@ exports.postpet = (req, res) => {
       } else {
         const arr = [];
         for (let i = 0; i < req.files.length; i++) {
-          console.log(__dirname.substring(0, __dirname.lastIndexOf("/")))
           arr[i] = fs.readFileSync(
             path.join(
               __dirname.substring(0, __dirname.lastIndexOf("/")) +
@@ -38,21 +37,25 @@ exports.postpet = (req, res) => {
           data: arr,
           text: req.body.text,
           author: req.body.authorId,
+          type: req.body.type,
+          breed: req.body.breed,
         });
         newImage
           .save()
           .then(() => {
             for (let i = 0; i < req.files.length; i++) {
-              console.log(__dirname.substring(0, __dirname.lastIndexOf("/")) +
-              "/temp/" +
-              req.files[i].filename)
+              console.log(
+                __dirname.substring(0, __dirname.lastIndexOf("/")) +
+                  "/temp/" +
+                  req.files[i].filename
+              );
               fs.unlink(
                 __dirname.substring(0, __dirname.lastIndexOf("/")) +
                   "/temp/" +
                   req.files[i].filename,
                 (err) => {
                   if (err) {
-                    console.log("asdasd")
+                    console.log("asdasd");
                     throw err;
                   }
                 }

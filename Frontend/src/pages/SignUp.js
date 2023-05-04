@@ -2,7 +2,6 @@ import { useState, useRef, useEffect, useContext } from "react";
 import axios from "axios";
 import styles from "../styles/pages/sign.module.css";
 import Link from "next/link";
-import ValidateEmail from "@/common/validateEmail";
 import { useRouter } from "next/router";
 import { useSession, signIn } from "next-auth/react";
 import { UserContext } from "@/common/userContext";
@@ -19,14 +18,15 @@ export default function SignUp() {
   const { user, setuser } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseurl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
 
   useEffect(() => {
     session ? router.push("/") : null;
   }, [session]);
   const verifyAccount = (val) => {
     axios
-      .put(baseurl + "verifyuser?code=" + val + "&user=" + username)
+      .put(baseUrl + "verifyuser?code=" + val + "&user=" + username)
       .then((res) => {
         localStorage.setItem("user", res.data);
         router.push("/");
@@ -46,7 +46,7 @@ export default function SignUp() {
       email: email,
     };
     axios
-      .post(baseurl + "signup", body)
+      .post(baseUrl + "signup", body)
       .then((res) => {
         setErr("Verify your email");
         setRescode(200);

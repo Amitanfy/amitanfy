@@ -18,7 +18,8 @@ export default function SignIn() {
   const { user, decoded } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseurl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
 
   useEffect(() => {
     session ? router.push("/") : null;
@@ -26,7 +27,7 @@ export default function SignIn() {
   console.log(user);
   const verifyAccount = (val) => {
     axios
-      .put(baseurl + "verifyuser?code=" + val + "&user=" + username)
+      .put(baseUrl + "verifyuser?code=" + val + "&user=" + username)
       .then((res) => {
         router.push("/");
       })
@@ -41,7 +42,7 @@ export default function SignIn() {
       pass: password,
     };
     axios
-      .post(baseurl + "signin", body)
+      .post(baseUrl + "signin", body)
       .then((res) => {
         console.log(res.data);
         localStorage.setItem("user", res.data);
