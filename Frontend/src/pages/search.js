@@ -3,6 +3,8 @@ import styles from "../styles/pages/Search.module.css";
 import Navbar from "../components/Navbar"
 import Post from "../components/Post"
 export default function Search() {
+
+    
     const [isAgeAccordionOpen, setIsAgeAccordionOpen] = useState(false);
     const [isBreedAccordionOpen, setIsBreedAccordionOpen] = useState(false);
     const [isColorAccordionOpen, setIsColorAccordionOpen] = useState(false);

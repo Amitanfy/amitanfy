@@ -32,7 +32,7 @@ export default function Post(props) {
       <div className={styles.filler}></div>
       <div className={styles.about}>
         <p className={styles.name}>{props.name}</p>
-        <p className={styles.options}>{props.type + " || " + props.breed}</p>
+        <p className={styles.options}>{props.type + " | " + props.breed}</p>
       </div>
     </div>
   );
