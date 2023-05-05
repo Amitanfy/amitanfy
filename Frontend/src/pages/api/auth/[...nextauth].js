@@ -3,6 +3,7 @@ import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
 
 export const authOptions = {
+
   // Configure one or more authentication providers
   providers: [
     FacebookProvider({
@@ -16,6 +17,17 @@ export const authOptions = {
 
     })
   ],
+  session: {
+    strategy: "jwt",
+  },
+    callbacks: {
+      async session(session, token) {
+        // Add the JWT token to the session
+        session.jwt = token;
+  
+        return session;
+      },
+  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 

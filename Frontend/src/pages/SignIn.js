@@ -21,10 +21,11 @@ export default function SignIn() {
   // const baseUrl = "https://amitanfy.onrender.com/";
   const baseUrl = "http://localhost:3030/";
 
-  useEffect(() => {
-    session ? router.push("/") : null;
-  }, [session]);
-  console.log(user);
+    useEffect(() => {
+      session ? router.push("/") : null;
+    }, [session]);
+  
+
   const verifyAccount = (val) => {
     axios
       .put(baseUrl + "verifyuser?code=" + val + "&user=" + username)
@@ -59,7 +60,7 @@ export default function SignIn() {
   };
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn("google");
+    signIn("google")
   };
   const handleSignin2 = (e) => {
     e.preventDefault();

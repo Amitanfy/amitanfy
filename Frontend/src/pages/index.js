@@ -21,7 +21,7 @@ export default function Home() {
   const router = useRouter();
 
   useEffect(() => {
-    session ? console.log(session) : null;
+    console.log(session)
   }, [session]);
 
   useEffect(() => {
