@@ -5,6 +5,7 @@ const { uuid } = require("uuidv4");
 const nodemailer = require("nodemailer");
 const validator = require("email-validator");
 const { sendMail } = require("../common/sendmail.js");
+const jwt = require('jsonwebtoken')
 exports.signUp = async (req, res) => {
   if (!validator.validate(req.body.email)) {
     res.status(409).json({ messege: "valid email please" }).end();
@@ -37,6 +38,27 @@ exports.getUsers = async (req, res) => {
   const body = await User.find({});
   res.send(body);
 };
+exports.handleplatform = async(req,res) =>{
+  const payload = jwt.verify(req.body.token, process.env.JWTEC || "defaultsecret");
+  console.log(payload)
+  const user = await User.findOne({ email: payload.email});
+  if(user) {
+    const token = getToken(user.username, user._id, user.role);
+    res.send(token)
+  }
+  else{
+    User.create({
+      username: payload.name,
+      email: payload.email,
+      role: 'user',
+      confirmed: true,
+    }).then((user)=>{
+      const token = getToken(user.username, user._id, user.role);
+      res.send(token)
+    }).catch((err)=>{console.log(err)})
+  }
+
+}
 exports.signIn = async (req, res) => {
   const { username, pass } = req.body;
   try {

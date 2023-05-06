@@ -7,6 +7,7 @@ import { UserContext } from "@/common/userContext";
 import { useSession, signIn } from "next-auth/react";
 import { BsFacebook } from "react-icons/bs";
 import { BsGoogle } from "react-icons/bs";
+import { headers } from "next/dist/client/components/headers";
 export default function SignIn() {
   const { data: session } = useSession();
   const [username, setUsername] = useState("");
@@ -22,7 +23,7 @@ export default function SignIn() {
   const baseUrl = "http://localhost:3030/";
 
     useEffect(() => {
-      session ? router.push("/") : null;
+      session? axios.post(baseUrl + "platformsignin",{token : session.jwt},{headers:{ authorization: session.jwt}}).then((res)=>{localStorage.setItem("user", res.data);router.push("/");}) : null
     }, [session]);
   
 

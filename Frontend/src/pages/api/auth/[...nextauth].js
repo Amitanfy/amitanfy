@@ -1,6 +1,7 @@
 import NextAuth from "next-auth";
 import FacebookProvider from "next-auth/providers/facebook";
 import GoogleProvider from "next-auth/providers/google";
+import jwt from "jsonwebtoken"
 
 export const authOptions = {
 
@@ -17,16 +18,14 @@ export const authOptions = {
 
     })
   ],
-  session: {
-    strategy: "jwt",
-  },
+
     callbacks: {
-      async session(session, token) {
-        // Add the JWT token to the session
-        session.jwt = token;
-  
-        return session;
-      },
+      async session(session,token){
+        session.session.user.role = "user"
+        const jwtToken = jwt.sign(session.session.user,process.env.JWTEC,{expiresIn: '1h'})
+        session.session.user.jwt = jwtToken
+        return {jwt: session.session.user.jwt}
+      }
   },
   secret: process.env.NEXTAUTH_SECRET,
 };
