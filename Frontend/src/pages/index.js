@@ -4,21 +4,27 @@ import Footer from "../components/Footer";
 import { FaSearch } from "react-icons/fa";
 import { FaCat, FaDog } from "react-icons/fa";
 import { IoMdPaw } from "react-icons/io";
+import { HiOutlineArrowSmallLeft } from "react-icons/hi2";
+import { HiOutlineArrowSmallRight } from "react-icons/hi2";
 import { BsFillHouseHeartFill } from "react-icons/bs";
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Post from "@/components/Post";
+import Advice from "@/components/Advice";
+import CatDog from "@/components/Catdog";
 import { UserContext } from "@/common/userContext";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Router, useRouter } from "next/router";
+import Popup from "reactjs-popup";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  const [advices, setAdvices] = useState([]);
   const { user, decoded } = useContext(UserContext);
   const { data: session } = useSession();
-  const baseUrl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
   const router = useRouter();
-  console.log(session);
   useEffect(() => {
     const arr = [];
     axios
@@ -32,6 +38,12 @@ export default function Home() {
       })
       .catch((err) => console.log(err));
   }, []);
+  axios
+    .get(baseUrl + "advicePosts")
+    .then((res) => {
+      setAdvices(res.data);
+    })
+    .catch((err) => console.log(err));
   return (
     <div className={styles.outer}>
       <Navbar />
@@ -94,58 +106,12 @@ export default function Home() {
           Browse pets from our network of over 11,500 shelters and rescues
         </div>
         <div className={styles.finder}>
-          <div
-            onClick={() => {
-              router.push("/PetPosts");
-            }}
-            className={styles.container}
-          >
-            <div>
-              <FaDog className={styles.icon} />
-            </div>
-            <div>
-              <div>Dogs</div>
-            </div>
-          </div>
-
-          <div
-            onClick={() => {
-              router.push("/PetPosts");
-            }}
-            className={styles.container}
-          >
-            <div>
-              <FaCat className={styles.icon2} />
-            </div>
-            <div>
-              <div>Cats</div>
-            </div>
-          </div>
-
-          <div
-            onClick={() => {
-              router.push("/PetPosts");
-            }}
-            className={styles.container}
-          >
-            <div>
-              <IoMdPaw className={styles.icon} />
-            </div>
-            <div>
-              <div>Other Animals</div>
-            </div>
-          </div>
-
-          <div className={styles.container}>
-            <div>
-              <BsFillHouseHeartFill className={styles.icon} />
-            </div>
-            <div>
-              <div>Shelters & Rescues</div>
-            </div>
-          </div>
+          <CatDog text={"Dog"} icon={<FaDog />} />
+          <CatDog text={"Cat"} icon={<FaCat />} />
+          <CatDog text={"Other Animals"} icon={<IoMdPaw />} />
+          <CatDog text={"Shelters & Rescues"} icon={<BsFillHouseHeartFill />} />
         </div>
-        <div className={styles.petsAv}>Pets Available for Adoption Nearby</div>
+        <div className={styles.petsAv}>Baigaa amitanuud</div>
         <div className={styles.petsAVApics}>
           {posts.map((x, i) => {
             const thumbnail = Buffer.from(x.data[0]).toString("base64");
@@ -218,7 +184,53 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className={styles.articleReadMore}>READ MORE</div>
+              <Popup
+                trigger={
+                  <button className={styles.articleReadMore}>READ MORE</button>
+                }
+                modal
+                nested
+              >
+                <div className={styles.popUpContent}>
+                  <div className={styles.popuptop}>
+                    <div className={styles.addOwnAdvice}>
+                      <div
+                        style={{
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          router.push("/AddAdvice");
+                        }}
+                      >
+                        Add your own advice
+                      </div>
+                    </div>
+                    <div className={styles.leftright}>
+                      <div className={styles.left}>
+                        <HiOutlineArrowSmallLeft className={styles.arrows} />
+                      </div>
+                      <div className={styles.right}>
+                        <HiOutlineArrowSmallRight className={styles.arrows} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.advicesppl}>
+                    Advices people have said
+                  </div>
+                  <div className={styles.popUpContent2}>
+                    {advices.map((y, i) => {
+                      return (
+                        <Advice
+                          id={y._id}
+                          key={i}
+                          title={y.title}
+                          pic={y.thumbnail}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+              </Popup>
             </div>
 
             <div className={styles.article2}>
@@ -237,7 +249,19 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className={styles.articleReadMore}>READ MORE</div>
+              <Popup
+                trigger={
+                  <button className={styles.articleReadMore}> READ MORE</button>
+                }
+                modal
+                nested
+              >
+                <div className={styles.popUpContent}>
+                  {advices.map((y, i) => {
+                    return <Advice key={i} title={y.title} pic={y.thumbnail} />;
+                  })}
+                </div>
+              </Popup>
             </div>
           </div>
         </div>

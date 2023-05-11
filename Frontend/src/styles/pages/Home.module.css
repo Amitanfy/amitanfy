@@ -4,7 +4,7 @@
 .dropdowns {
   width: 100%;
   height: 5vh;
-  background-color: #5a4ff3;
+  background-color: black;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -21,13 +21,14 @@
 }
 .dropdownText {
   font-family: "Nexa-Bold", arial, helvetica, sans-serif;
+  cursor: pointer;
 }
 .dropdownContent {
   width: 150%;
   opacity: 0;
   display: flex;
   flex-direction: column;
-  background-color: #5a4ff4;
+  background-color: black;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transform: translateY(-10px);
@@ -83,10 +84,10 @@
   padding-left: 10px;
 }
 .searchPet:hover {
-  border: 2px solid #5a4ff4;
+  border: 2px solid blueviolet;
 }
 .searchLocation:hover {
-  border: 2px solid #5a4ff4;
+  border: 2px solid blueviolet;
 }
 .navbarVerticalLine {
   width: 1px;
@@ -96,7 +97,7 @@
 .petFinder {
   width: 40px;
   height: 40px;
-  background-color: #5a4ff3;
+  background-color: #212121;
   margin-left: 11px;
   border-radius: 5px;
   display: flex;
@@ -125,9 +126,10 @@
   margin-top: 60px;
   gap: 17px;
   z-index: 1;
+  cursor: pointer;
 }
 .petsAv {
-  color: #6505b5;
+  color: #212121;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 45px;
   margin-top: 70px;
@@ -183,7 +185,7 @@
   height: 50px;
   background-color: white;
   border-radius: 40px;
-  border: 2px #5a4ff4 solid;
+  border: 2px #212121 solid;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -193,6 +195,7 @@
   font-weight: 600;
   margin-top: 70px;
   transition: 200ms;
+  cursor: pointer;
 }
 .planningHeaderUnder2 {
   width: 320px;
@@ -203,7 +206,7 @@
   line-height: 22px;
 }
 .learnMore:hover {
-  background-color: #5a4ff4;
+  background-color: #212121;
   color: white;
   transition: 200ms;
 }
@@ -238,7 +241,7 @@
   align-items: center;
 }
 .articlesHeader {
-  color: #6505b5;
+  color: #212121;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   font-size: 45px;
   margin-bottom: 30px;
@@ -275,6 +278,11 @@
   color: #4d4651;
   font-weight: 600;
   transition: 200ms;
+  border-left: none;
+  border-right: none;
+  border-bottom: none;
+  font-size: 16px;
+  cursor: pointer;
 }
 .underPicWhite {
   width: 100%;
@@ -319,30 +327,14 @@
   font-size: 23px;
 }
 .article1:hover > .articleReadMore {
-  background-color: #5a4ff4;
+  background-color: #212121;
   color: white;
   transition: 200ms;
 }
 .article2:hover > .articleReadMore {
-  background-color: #5a4ff4;
+  background-color: #212121;
   color: white;
   transition: 200ms;
-}
-.container {
-  width: 190px;
-  height: 180px;
-  border-radius: 10px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: white;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  gap: 20px;
-}
-.container:hover {
-  border: 2px solid #5a4ff4;
-  background-color: rgb(234, 234, 234);
 }
 .icon {
   font-size: 80px;
@@ -354,6 +346,65 @@
   width: 100%;
   height: 38vh;
   position: absolute;
-  background-image: url("https://www.petfinder.com/sites/default/files/styles/hero_image_1140_410/public/images/content/1140%20hero%20image_0.jpg?itok=wryBzVcI");
-  z-index: 0;
+  background-color: #212121;
+}
+.popUpContent {
+  width: 500px;
+  height: fit-content;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px solid #212121;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+.popUpContent2 {
+  width: 480px;
+  padding-left: 19px;
+  background-color: white;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.popuptop {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  padding-left: 20px;
+  justify-content: space-between;
+}
+.leftright {
+  display: flex;
+  gap: 5px;
+}
+.left {
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.right {
+  border: 2px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  margin-right: 27px;
+}
+.arrows {
+  font-size: 20px;
+}
+.addOwnAdvice {
+  margin-left: 8px;
+}
+.advicesppl {
+  font-size: 30px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 20px;
 }

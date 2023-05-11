@@ -9,6 +9,9 @@ export default function Navbar() {
     <div className={styles.outer}>
       <div className={styles.left}>
         <img
+          onClick={() => {
+            router.push("/");
+          }}
           className={styles.logo}
           alt="logoImg"
           src="https://www.petfinder.com/themes/custom/consumer_react/logo.svg"
