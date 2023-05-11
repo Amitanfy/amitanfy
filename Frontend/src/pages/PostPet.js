@@ -14,8 +14,8 @@ export default function PostPet() {
   const [breed, setBreed] = useState(null);
   const [temp, setTemp] = useState(null);
   const { user, decoded } = useContext(UserContext);
-  // const baseUrl = "https://amitanfy.onrender.com/";
-  const baseUrl = "http://localhost:3030/";
+  const baseUrl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "http://localhost:3030/";
 
   const handleclick = () => {
     console.log(breed);
@@ -32,7 +32,10 @@ export default function PostPet() {
       method: "post",
       url: baseUrl + "PostPet",
       data: bodyFormData,
-      headers: { "Content-Type": "multipart/form-data","Authorization": user? user : null},
+      headers: {
+        "Content-Type": "multipart/form-data",
+        Authorization: user ? user : null,
+      },
     })
       .then((res) => {
         console.log(res);

@@ -7,7 +7,6 @@ import { UserContext } from "@/common/userContext";
 import { useSession, signIn } from "next-auth/react";
 import { BsFacebook } from "react-icons/bs";
 import { BsGoogle } from "react-icons/bs";
-import { headers } from "next/dist/client/components/headers";
 export default function SignIn() {
   const { data: session } = useSession();
   const [username, setUsername] = useState("");
@@ -19,14 +18,13 @@ export default function SignIn() {
   const { user, decoded } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  // const baseUrl = "https://amitanfy.onrender.com/";
-  const baseUrl = "http://localhost:3030/";
+  const baseUrl = "https://amitanfy.onrender.com/";
+  // const baseUrl = "http://localhost:3030/";
 
-    useEffect(() => {
-      session? axios.post(baseUrl + "platformsignin",{token : session.jwt},{headers:{ authorization: session.jwt}}).then((res)=>{localStorage.setItem("user", res.data);router.push("/");}) : null
-    }, [session]);
-  
-
+  useEffect(() => {
+    session ? router.push("/") : null;
+  }, [session]);
+  console.log(user);
   const verifyAccount = (val) => {
     axios
       .put(baseUrl + "verifyuser?code=" + val + "&user=" + username)
@@ -61,7 +59,7 @@ export default function SignIn() {
   };
   const handleSignin = (e) => {
     e.preventDefault();
-    signIn("google")
+    signIn("google");
   };
   const handleSignin2 = (e) => {
     e.preventDefault();
