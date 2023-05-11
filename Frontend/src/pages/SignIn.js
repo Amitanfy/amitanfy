@@ -18,10 +18,11 @@ export default function SignIn() {
   const { user, decoded } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseUrl = "https://amitanfy.onrender.com/";
-  // const baseUrl = "http://localhost:3030/";
+  // const baseUrl = "https://amitanfy.onrender.com/";
+  const baseUrl = "http://localhost:3030/";
 
   useEffect(() => {
+    console.log(session);
     session ? router.push("/") : null;
   }, [session]);
   console.log(user);

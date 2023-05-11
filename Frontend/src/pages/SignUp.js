@@ -18,8 +18,7 @@ export default function SignUp() {
   const { user, setuser } = useContext(UserContext);
   const ref = useRef(0);
   const router = useRouter();
-  const baseUrl = "https://amitanfy.onrender.com/";
-  // const baseUrl = "http://localhost:3030/";
+  const baseUrl = process.env.API_KEY;
 
   useEffect(() => {
     session ? router.push("/") : null;

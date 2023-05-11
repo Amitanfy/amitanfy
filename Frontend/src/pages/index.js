@@ -16,12 +16,10 @@ import jwtDecode from "jwt-decode";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const { user, decoded } = useContext(UserContext);
-  const baseUrl = "https://amitanfy.onrender.com/";
-  // const baseUrl = "http://localhost:3030/";
+  const baseUrl = process.env.API_KEY;
   const router = useRouter();
-
   useEffect(() => {
-    console.log(decoded);
+    console.log(user);
   }, [user]);
 
   useEffect(() => {
