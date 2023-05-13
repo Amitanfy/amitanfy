@@ -5,12 +5,13 @@
 .page1 {
     width: 100vw;
     height: 100vh;
-    background-color: #F9F6EE;
+    background-color: #efeef1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+
 
 .imgCon {
     width: 100%;
@@ -26,24 +27,45 @@
 .img {
     background-color: rgb(60, 60, 63);
     height: 100%;
-    width: 60%;
+    width: 40%;
     object-fit: cover;
     display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    overflow: hidden;
+}
 
+.img-image {
+    width: 100px;
+    height: 100px;
+}
+
+.slideImg {
+    width: 90%;
+    /* height: auto; */
+    display: flex;
+    justify-content: center;
+    object-fit: fill;
+    overflow: hidden;
+}
+
+.slide {
+    width: 100px;
 }
 
 .info {
     width: 55%;
     height: 60vh;
     display: flex;
-    background-color: blueviolet;
+    /* background-color: blueviolet; */
     justify-content: space-around;
 }
 
 .card {
     width: 60%;
-    height: 50%;
-    background-color: aquamarine;
+    height: 70%;
+    background-color: white;
     padding: 10px;
     border-radius: 10px;
     display: flex;
@@ -81,13 +103,164 @@
 
 }
 
+
+.font {
+    font-family: Nexa Regular, arial, helvetica, sans-serif;
+    color: #4d4751;
+    /* border-bottom: 1px solid black; */
+}
+
 .feedback {
     width: 35%;
     height: 60%;
-    background-color: bisque;
+    background-color: #6504b5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10px;
+    /* overflow: hidden; */
 }
-.font{
-    font-family: Nexa Regular,arial,helvetica,sans-serif;
-    color: #4d4751;
-    /* border-bottom: 1px solid black; */
+
+.feedbackFont {
+    margin-top: 10%;
+    font-family: Nexa Regular, arial, helvetica, sans-serif;
+    color: white;
+    font-size: small;
+}
+
+.feedbackButt {
+    width: 80%;
+    height: 15%;
+    background-color: #6504b5;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.feedbackButt2 {
+    width: 50%;
+    height: 100%;
+    background-color: #6504b5;
+    border: 1px solid black;
+    /* border: 1px solid white; */
+    /* border-radius: 10px; */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+
+.right {
+    border-bottom-left-radius: 10px;
+}
+
+.left {
+    border-bottom-right-radius: 10px;
+
+}
+
+.feedbackBigButt {
+    width: 100%;
+    height: 15%;
+    background-color: #F9F6EE;
+    display: flex;
+}
+
+.page2 {
+    width: 100vw;
+    height: 100vh;
+    background-color: #efeef1;
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    border: black solid 1px;
+}
+
+.content1 {
+    width: 100%;
+    height: 25%;
+    background-color: #6504b5;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.section1 {
+    width: 50%;
+    height: 50%;
+    border-bottom: 0.3px solid white;
+    /* background-color: #4d4751; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding-left: 5%; */
+    gap: 20px;
+}
+
+.section2 {
+    width: 50%;
+    height: 50%;
+    /* border-bottom: 1px solid white; */
+    /* background-color: #4d4751; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* padding-left: 5%; */
+}
+
+.upperImg {
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    border: 2px solid white;
+}
+
+.upperText {
+    height: 80%;
+    width: 50%;
+    /* border: 2px solid white; */
+}
+
+.upperLilText {
+    height: 50%;
+    width: 100%;
+    background-color: #6504b5;
+    /* border: 0.5px solid white; */
+    display: flex;
+    align-items: center;
+}
+
+.upperBold {
+    font-family: Nexa Regular, arial, helvetica, sans-serif;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.upperThin {
+    font-family: Nexa Regular, arial, helvetica, sans-serif;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-around;
+    font-size: 13px;
+    font-weight: lighter;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.lowerLilText {
+    width: 100%;
+    height: 100%;
 }
