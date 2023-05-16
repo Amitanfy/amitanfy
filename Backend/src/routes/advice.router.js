@@ -9,7 +9,7 @@ const petAdviceRouter = express.Router();
 
 petAdviceRouter
   .get("/AdvicePosts", getAdvices)
-  .get("/AdvicePost", getAdvice)
+  .get("/AdvicePost/:id", getAdvice)
   .delete("/deleteAdvice", deleteAdvice)
   .post("/postAdvice", createAdvice);
 
