@@ -247,10 +247,10 @@ export default function Home() {
                 <div className={styles.filler}></div>
                 <div className={styles.underPicWhite}>
                   <div className={styles.margintop}>
-                    Нохой үрчлэх тухай нийтлэл
+                    муур үрчлэх тухай нийтлэл
                   </div>
                   <div className={styles.lightgrey}>
-                    Шинэ нохойгоо халамжлах талаар илүү ихийг мэдэж аваарай.
+                    Шинэ муураа халамжлах талаар илүү ихийг мэдэж аваарай.
                   </div>
                 </div>
               </div>
