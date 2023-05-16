@@ -172,6 +172,8 @@
   align-items: center;
 }
 .planningHeader {
+  width: 400px;
+  text-align: center;
   font-size: 24px;
   color: #004c81;
 }
@@ -191,7 +193,7 @@
   align-items: center;
   color: #004c81;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   margin-top: 70px;
   transition: 200ms;
@@ -402,9 +404,37 @@
 }
 .addOwnAdvice {
   margin-left: 8px;
+  font-size: 16px;
 }
 .advicesppl {
   font-size: 30px;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-bottom: 20px;
+}
+.meetthem {
+  height: 30vh;
+  width: 11vw;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  color: white;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  gap: 20px;
+  background-color: #212121;
+}
+.meetbottom {
+  width: 100%;
+  height: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid white;
+  font-size: 23px;
+}
+.pawpaw {
+  font-size: 80px;
+  margin-top: 40px;
 }

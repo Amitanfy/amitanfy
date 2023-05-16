@@ -49,7 +49,7 @@ export default function Home() {
       <Navbar />
       <div className={styles.dropdowns}>
         <div className={styles.dropdown}>
-          <p className={styles.dropdownText}>ADOPT OR GET INVOLVED</p>
+          <p className={styles.dropdownText}>ОРОЛЦОХ БУЮУ ОРОЛЦОХ</p>
           <div className={styles.dropdownContent}>
             <p className={styles.lorem}>lorem</p>
             <p className={styles.lorem}>lorem</p>
@@ -58,7 +58,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.dropdown}>
-          <p className={styles.dropdownText}>DOGS & PUPPIES</p>
+          <p className={styles.dropdownText}>НОХОЙ, ГӨЛӨГ</p>
           <div className={styles.dropdownContent}>
             <p className={styles.lorem}>lorem</p>
             <p className={styles.lorem}>lorem</p>
@@ -67,7 +67,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.dropdown}>
-          <p className={styles.dropdownText}>CATS & KITTENS</p>
+          <p className={styles.dropdownText}>МУУР, МУУР</p>
           <div className={styles.dropdownContent}>
             <p className={styles.lorem}>lorem</p>
             <p className={styles.lorem}>lorem</p>
@@ -76,7 +76,7 @@ export default function Home() {
           </div>
         </div>
         <div className={styles.dropdown}>
-          <p className={styles.dropdownText}>OTHER TYPES OF PETS</p>
+          <p className={styles.dropdownText}>БУСАД ТӨРЛИЙН АМЬТАД</p>
           <div className={styles.dropdownContent}>
             <p className={styles.lorem}>lorem</p>
             <p className={styles.lorem}>lorem</p>
@@ -87,31 +87,20 @@ export default function Home() {
       </div>
       <div className={styles.main}>
         <div className={styles.backimg}></div>
-        <div className={styles.searchOptions}>
-          <input
-            className={styles.searchPet}
-            placeholder="Search Terrier, Kitten, etc"
-          ></input>
-          <div className={styles.navbarVerticalLine}></div>
-          <input
-            className={styles.searchLocation}
-            placeholder="Enter City, State or ZIP"
-          ></input>
-          <div className={styles.petFinder}>
-            <FaSearch />
-          </div>
-        </div>
-        <div className={styles.header}>Find your new best friend</div>
+        <div className={styles.header}>Шинэ сайн найзаа олоорой</div>
         <div className={styles.underHeader}>
-          Browse pets from our network of over 11,500 shelters and rescues
+          Манай 11,500 гаруй хоргодох байр, аврах газрын тэжээвэр амьтдыг хайж
+          олоорой
         </div>
         <div className={styles.finder}>
-          <CatDog text={"Dog"} icon={<FaDog />} />
-          <CatDog text={"Cat"} icon={<FaCat />} />
-          <CatDog text={"Other Animals"} icon={<IoMdPaw />} />
-          <CatDog text={"Shelters & Rescues"} icon={<BsFillHouseHeartFill />} />
+          <CatDog text={"нохой"} icon={<FaDog />} />
+          <CatDog text={"муур"} icon={<FaCat />} />
+          <CatDog text={"Бусад амьтад"} icon={<IoMdPaw />} />
+          <CatDog text={"Хоргодох байр"} icon={<BsFillHouseHeartFill />} />
         </div>
-        <div className={styles.petsAv}>Baigaa amitanuud</div>
+        <div className={styles.petsAv}>
+          Ойролцоох тэжээвэр амьтан үрчлүүлэх боломжтой
+        </div>
         <div className={styles.petsAVApics}>
           {posts.map((x, i) => {
             const thumbnail = Buffer.from(x.data[0]).toString("base64");
@@ -127,46 +116,56 @@ export default function Home() {
               />
             );
           })}
+          <div className={styles.meetthem}>
+            <IoMdPaw className={styles.pawpaw} />
+            Petfinder дээр өөр 84 тэжээвэр амьтан авах боломжтой
+            <div className={styles.meetbottom}>Тэдэнтэй уулз</div>
+          </div>
         </div>
         <div className={styles.middleWhite}>
-          <div className={styles.planning}>Planning to Adopt a Pet?</div>
+          <div className={styles.planning}>
+            Гэрийн тэжээвэр амьтан үрчлүүлэхээр төлөвлөж байна уу?
+          </div>
 
           <div className={styles.planning3}>
             <div className={styles.plannigContent}>
               <div className={styles.planningHeader}>
-                Checklist for New Adopters
+                Шинээр хүлээн авагчдад зориулсан шалгах хуудас
               </div>
               <div className={styles.planningHeaderUnder}>
-                Help make the transition, as smooth as possible.
+                Шилжилтийг аль болох жигд болгоход тусална уу.
               </div>
-              <div className={styles.learnMore}>LEARN MORE</div>
+              <div className={styles.learnMore}>ИЛҮҮ ИХ СУДЛА</div>
             </div>
 
             <div className={styles.plannigContent}>
               <div className={styles.plannigContent}>
                 <div className={styles.planningHeader}>COVID-19 Resources</div>
                 <div className={styles.planningHeaderUnder2}>
-                  Get the latest on adoption processes, learn how local shelters
-                  and rescue groups are adapting and find out what you can do to
-                  help dogs and cats in need right now.
+                  Хүүхэд үрчлэн авах үйл явцын талаарх хамгийн сүүлийн үеийн
+                  мэдээг авч, орон нутгийн хоргодох байрыг мэдэж аваарай мөн
+                  аврах бүлгүүд дасан зохицож, та юу хийж чадахаа олж мэдээрэй
+                  яг одоо тусламж хэрэгтэй байгаа нохой, мууранд туслаарай.
                 </div>
-                <div className={styles.learnMore}>LEARN MORE</div>
+                <div className={styles.learnMore}>ИЛҮҮ ИХ СУДЛА</div>
               </div>
             </div>
 
             <div className={styles.plannigContent}>
               <div className={styles.plannigContent}>
-                <div className={styles.planningHeader}>Pet Adoption FAQs</div>
-                <div className={styles.planningHeaderUnder}>
-                  Get answers to questions you haven't thought of.
+                <div className={styles.planningHeader}>
+                  Гэрийн тэжээвэр амьтдыг үрчлүүлэх тухай түгээмэл асуултууд
                 </div>
-                <div className={styles.learnMore}>LEARN MORE</div>
+                <div className={styles.planningHeaderUnder}>
+                  Бодож амжаагүй асуултууддаа хариулт аваарай.
+                </div>
+                <div className={styles.learnMore}>ИЛҮҮ ИХ СУДЛА</div>
               </div>
             </div>
           </div>
         </div>
         <div className={styles.articles}>
-          <div className={styles.articlesHeader}>Articles</div>
+          <div className={styles.articlesHeader}>Нийтлэл</div>
           <div className={styles.articlesMain}>
             <div className={styles.article1}>
               <div className={styles.middleDog}>
@@ -178,15 +177,19 @@ export default function Home() {
               <div className={styles.articleImg}>
                 <div className={styles.filler}></div>
                 <div className={styles.underPicWhite}>
-                  <div className={styles.margintop}>Dog Adoption Articles</div>
+                  <div className={styles.margintop}>
+                    Нохой үрчлэх тухай нийтлэл
+                  </div>
                   <div className={styles.lightgrey}>
-                    Learn more about caring for your new dog.
+                    Шинэ нохойгоо халамжлах талаар илүү ихийг мэдэж аваарай.
                   </div>
                 </div>
               </div>
               <Popup
                 trigger={
-                  <button className={styles.articleReadMore}>READ MORE</button>
+                  <button className={styles.articleReadMore}>
+                    ИЛҮҮ ИХ СУДЛА
+                  </button>
                 }
                 modal
                 nested
@@ -202,7 +205,7 @@ export default function Home() {
                           router.push("/AddAdvice");
                         }}
                       >
-                        Add your own advice
+                        Өөрийнхөө зөвлөгөөг нэмнэ үү
                       </div>
                     </div>
                     <div className={styles.leftright}>
@@ -215,7 +218,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className={styles.advicesppl}>
-                    Advices people have said
+                    Хүмүүсийн хэлсэн зөвлөгөө
                   </div>
                   <div className={styles.popUpContent2}>
                     {advices.map((y, i) => {
@@ -243,23 +246,61 @@ export default function Home() {
               <div className={styles.articleImg2}>
                 <div className={styles.filler}></div>
                 <div className={styles.underPicWhite}>
-                  <div className={styles.margintop}>Cat Adoption Articles</div>
+                  <div className={styles.margintop}>
+                    Нохой үрчлэх тухай нийтлэл
+                  </div>
                   <div className={styles.lightgrey}>
-                    Helpful insights on what we expect you too see.
+                    Шинэ нохойгоо халамжлах талаар илүү ихийг мэдэж аваарай.
                   </div>
                 </div>
               </div>
               <Popup
                 trigger={
-                  <button className={styles.articleReadMore}> READ MORE</button>
+                  <button className={styles.articleReadMore}>
+                    ИЛҮҮ ИХ СУДЛА
+                  </button>
                 }
                 modal
                 nested
               >
                 <div className={styles.popUpContent}>
-                  {advices.map((y, i) => {
-                    return <Advice key={i} title={y.title} pic={y.thumbnail} />;
-                  })}
+                  <div className={styles.popuptop}>
+                    <div className={styles.addOwnAdvice}>
+                      <div
+                        style={{
+                          cursor: "pointer",
+                        }}
+                        onClick={() => {
+                          router.push("/AddAdvice");
+                        }}
+                      >
+                        Өөрийнхөө зөвлөгөөг нэмнэ үү
+                      </div>
+                    </div>
+                    <div className={styles.leftright}>
+                      <div className={styles.left}>
+                        <HiOutlineArrowSmallLeft className={styles.arrows} />
+                      </div>
+                      <div className={styles.right}>
+                        <HiOutlineArrowSmallRight className={styles.arrows} />
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.advicesppl}>
+                    Хүмүүсийн хэлсэн зөвлөгөө
+                  </div>
+                  <div className={styles.popUpContent2}>
+                    {advices.map((y, i) => {
+                      return (
+                        <Advice
+                          id={y._id}
+                          key={i}
+                          title={y.title}
+                          pic={y.thumbnail}
+                        />
+                      );
+                    })}
+                  </div>
                 </div>
               </Popup>
             </div>

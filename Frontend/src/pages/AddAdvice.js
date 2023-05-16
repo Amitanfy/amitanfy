@@ -35,10 +35,20 @@ export default function AddAdvice() {
   };
   return (
     <div className={styles.outer}>
-      addAdvice
-      <input placeholder="title" ref={titleref}></input>
-      <input placeholder="text" ref={textref}></input>
-      <button onClick={AddAdvice}>Add advice</button>
+      Add Advice
+      <input
+        className={styles.title}
+        placeholder="title"
+        ref={titleref}
+      ></input>
+      <textarea
+        className={styles.maintext}
+        placeholder="text"
+        ref={textref}
+      ></textarea>
+      <button className={styles.button} onClick={AddAdvice}>
+        Add advice
+      </button>
     </div>
   );
 }
