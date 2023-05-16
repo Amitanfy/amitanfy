@@ -9,8 +9,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default function Post() {
   const router = useRouter();
   const [post, setPost] = useState(null);
-  // const baseUrl = "https://amitanfy.onrender.com/";
-  const baseUrl = "http://localhost:3030/";
+  const baseUrl = process.env.API_KEY;
 
   useEffect(() => {
     if (router.isReady) {

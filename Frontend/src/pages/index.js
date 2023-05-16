@@ -19,8 +19,8 @@ export default function Home() {
   const baseUrl = process.env.API_KEY;
   const router = useRouter();
   useEffect(() => {
-    console.log(user);
-  }, [user]);
+    console.log(decoded);
+  }, [decoded]);
 
   useEffect(() => {
     const arr = [];
