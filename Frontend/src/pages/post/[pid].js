@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar"
+import Footer from "../../components/Footer"
 import styles from "../../styles/pages/postDetails.module.css";
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -26,6 +27,7 @@ export default function Post() {
         });
     }
   }, [])
+
   if (post !== null) {
     const thumbnail = Buffer.from(post.data[0].data).toString("base64");
     const mimeType = "image/jpeg";
@@ -89,8 +91,51 @@ export default function Post() {
                 </div>
               </div>
             </div>
+            <div className={styles.articles}>
+              <div className={styles.articlesMain}>
+                <div className={styles.article1}>
+                  <div className={styles.middleDog}>
+                    <img
+                      className={styles.middledogimg}
+                      src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/47.jpeg?itok=HNT_yv1F"
+                    ></img>
+                  </div>
+                  <div className={styles.articleImg}>
+                    <div className={styles.filler}></div>
+                    <div className={styles.underPicWhite}>
+                      <div className={styles.margintop}>Dog Adoption Articles</div>
+                      <div className={styles.lightgrey}>
+                        Learn more about caring for your new dog.
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.articleReadMore}>READ MORE</div>
+                </div>
+
+                <div className={styles.article2}>
+                  <div className={styles.middleDog}>
+                    <img
+                      className={styles.middledogimg}
+                      src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/PF2015_267_Kittens_Shelter-630.jpg?itok=JGTdJJaD"
+                    ></img>
+                  </div>
+                  <div className={styles.articleImg2}>
+                    <div className={styles.filler}></div>
+                    <div className={styles.underPicWhite}>
+                      <div className={styles.margintop}>Cat Adoption Articles</div>
+                      <div className={styles.lightgrey}>
+                        Helpful insights on what we expect you too see.
+                      </div>
+                    </div>
+                  </div>
+                  <div className={styles.articleReadMore}>READ MORE</div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
+        <Footer />
       </div >
     )
   }
