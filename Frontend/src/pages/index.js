@@ -11,6 +11,7 @@ import Post from "@/components/Post";
 import { UserContext } from "@/common/userContext";
 import { useSession, signIn, signOut } from "next-auth/react";
 import { Router, useRouter } from "next/router";
+import jwtDecode from "jwt-decode";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
@@ -18,7 +19,10 @@ export default function Home() {
   const { data: session } = useSession();
   const baseUrl = "http://localhost:3030/"
   const router = useRouter();
-  console.log(session);
+  useEffect(() => {
+    console.log(decoded);
+  }, [decoded]);
+
   useEffect(() => {
     const arr = [];
     axios
@@ -155,7 +159,7 @@ export default function Home() {
                 key={x._id}
                 id={x._id}
                 img={`data:${mimeType};base64,${thumbnail}`}
-                name={x.text}
+                name={x.name}
                 type={x.type}
                 breed={x.breed}
               />

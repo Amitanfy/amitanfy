@@ -3,21 +3,22 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Navbar from "../../components/Navbar"
 import Footer from "../../components/Footer"
+import Navbar from "../../components/Navbar";
 import styles from "../../styles/pages/postDetails.module.css";
-import { Carousel } from 'react-responsive-carousel';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function Post() {
   const router = useRouter();
   const [post, setPost] = useState(null);
-  // const baseurl = "https://amitanfy.onrender.com/";
-  const baseurl = "http://localhost:3030/"
+  const baseUrl = process.env.API_KEY;
+
   useEffect(() => {
     if (router.isReady) {
       const { pid } = router.query;
       console.log(router.query);
       axios
-        .get(baseurl + "PetPost/" + pid)
+        .get(baseUrl + "PetPost/" + pid)
         .then((res) => {
           setPost(res.data[0]);
           console.log(res.data[0].data[0].data);
@@ -26,8 +27,8 @@ export default function Post() {
           console.log(err);
         });
     }
-  }, [])
 
+  }, []);
   if (post !== null) {
     const thumbnail = Buffer.from(post.data[0].data).toString("base64");
     const mimeType = "image/jpeg";
@@ -36,7 +37,6 @@ export default function Post() {
       <div>
         <Navbar />
         <div className={styles.body}>
-
           <div className={styles.page1}>
             <div className={styles.imgCon}>
               <div className={styles.img}>
@@ -49,6 +49,11 @@ export default function Post() {
                   </div>
                 </Carousel>
               </div>
+              <Carousel className={styles.img}>
+                <img src={`data:${mimeType};base64,${thumbnail}`}></img>
+                <img src={`data:${mimeType};base64,${thumbnail}`}></img>
+                <img src={`data:${mimeType};base64,${thumbnail}`}></img>
+              </Carousel>
             </div>
 
             <div className={styles.info}>
@@ -58,6 +63,22 @@ export default function Post() {
                 <div className={[styles.category, styles.font].join(' ')}>Female | dog | dumb</div>
                 <div className={[styles.name, styles.font].join(' ')}>About</div>
                 <div className={[styles.about, styles.font].join(' ')}>she has to eat 4times every hours she fat af feed her so much</div>
+                <div className={[styles.name, styles.font].join(" ")}>
+                  Bella
+                </div>
+                <div className={[styles.location, styles.font].join(" ")}>
+                  {" "}
+                  Affenpinscher Mangilao, GU
+                </div>
+                <div className={[styles.category, styles.font].join(" ")}>
+                  Female | bulldog | dumb af
+                </div>
+                <div className={[styles.name, styles.font].join(" ")}>
+                  About
+                </div>
+                <div className={[styles.about, styles.font].join(" ")}>
+                  she has to eat 4times every hours she fat af feed her so much
+                </div>
 
               </div>
               <div className={styles.feedback}>
@@ -138,6 +159,9 @@ export default function Post() {
         <Footer />
       </div >
     )
+        </div>
+      </div>
+    );
   }
   return (
     <p>error 123</p>

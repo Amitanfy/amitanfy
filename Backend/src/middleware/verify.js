@@ -4,15 +4,15 @@ require("dotenv").config();
 
 exports.verify = (req, res, next) => {
   const token = req.headers.authorization;
-  console.log(token);
+  console.log(token +" asd");
 
   try {
     const payload = jwt.verify(token, process.env.JWTEC || "defaultsecret");
     console.log(payload.role);
-    if (payload.role === "user")
-      res.status(401).json({ message: "Unauthorized" });
+    if (payload.role !== "user")
+      res.status(403).json({ message: "Unauthorized" });
     next();
   } catch (error) {
-    res.status(401).json({ message: "Unauthorized" });
+    res.status(403).json({ message: "Unauthorized" });
   }
 };

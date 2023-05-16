@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 
 export default function petPosts() {
   const [posts, setPosts] = useState([]);
-  const baseurl = "https://amitanfy.onrender.com/";
+  const baseUrl = process.env.API_KEY;
   useEffect(() => {
     axios
-      .get(baseurl + "PetPosts")
+      .get(baseUrl + "PetPosts")
       .then((res) => {
         const arr = [];
         for (let i = 0; i < res.data.length; i++) arr[i] = res.data[i];
@@ -27,7 +27,7 @@ export default function petPosts() {
             key={x._id}
             id={x._id}
             img={`data:${mimeType};base64,${thumbnail}`}
-            name={x.text}
+            name={x.name}
             type={x.type}
             breed={x.breed}
           />
