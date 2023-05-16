@@ -16,7 +16,8 @@ import jwtDecode from "jwt-decode";
 export default function Home() {
   const [posts, setPosts] = useState([]);
   const { user, decoded } = useContext(UserContext);
-  const baseUrl = process.env.API_KEY;
+  const { data: session } = useSession();
+  const baseUrl = "http://localhost:3030/"
   const router = useRouter();
   useEffect(() => {
     console.log(decoded);
