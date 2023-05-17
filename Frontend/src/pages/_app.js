@@ -6,11 +6,11 @@ import jwtDecode from "jwt-decode";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <UserProvider>
-      <SessionProvider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
+        <UserProvider>
         <Component {...pageProps} />
-      </SessionProvider>
-    </UserProvider>
+        </UserProvider>
+    </SessionProvider>
   );
 }
 

@@ -1,6 +1,8 @@
+import Navbar from "@/components/Navbar";
 import Post from "@/components/Post";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import styles from "../styles/pages/Petposts.module.css"
 
 export default function petPosts() {
   const [posts, setPosts] = useState([]);
@@ -18,21 +20,26 @@ export default function petPosts() {
 
   return (
     <div>
-      {posts.map((x, i) => {
-        const reader = new FileReader();
-        const thumbnail = Buffer.from(x.data[0]).toString("base64");
-        const mimeType = "image/jpeg";
-        return (
-          <Post
-            key={x._id}
-            id={x._id}
-            img={`data:${mimeType};base64,${thumbnail}`}
-            name={x.name}
-            type={x.type}
-            breed={x.breed}
-          />
-        );
-      })}
+      <Navbar/>
+      <div className={styles.mainframe}>
+        <div className={styles.posts}>
+          {posts.map((x, i) => {
+            const reader = new FileReader();
+            const thumbnail = Buffer.from(x.data[0]).toString("base64");
+            const mimeType = "image/jpeg";
+            return (
+              <Post
+                key={x._id}
+                id={x._id}
+                img={`data:${mimeType};base64,${thumbnail}`}
+                name={x.name}
+                type={x.type}
+                breed={x.breed}
+              />
+            );
+          })}
+      </div>
+      </div>
     </div>
   );
 }

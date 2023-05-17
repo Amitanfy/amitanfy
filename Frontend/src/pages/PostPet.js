@@ -3,6 +3,7 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styles from "../styles/pages/Postpet.module.css";
 import { useSession } from "next-auth/react";
+import Navbar from "@/components/Navbar";
 
 export default function PostPet() {
   const [file, setFile] = useState([]);
