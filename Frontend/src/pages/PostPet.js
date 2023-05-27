@@ -3,8 +3,10 @@ import axios from "axios";
 import { useContext, useEffect, useState } from "react";
 import styles from "../styles/pages/Postpet.module.css";
 import { useSession } from "next-auth/react";
+import { Router, useRouter } from "next/router";
 
 export default function PostPet() {
+  const router = useRouter();
   const [file, setFile] = useState([]);
   const [image, setImage] = useState([]);
   const [text, setText] = useState("");
@@ -36,7 +38,8 @@ export default function PostPet() {
       },
     })
       .then((res) => {
-        console.log(res);
+        console.log(res)
+        router.push("/post/" + res.data._id)
       })
       .catch((err) => {
         console.log(err);
@@ -65,14 +68,21 @@ export default function PostPet() {
       })
       .then((res) => console.log(setBreeds(res.data)));
   };
+  const handleOthers = () => {
+    setType("бусад");
+    setBreed("бусад")
+    setBreeds([])
+  };
   return (
     <div>
       {!breeds ? (
         <div className={styles.backdrop}>
           <div onClick={handleCat}>cat</div>
           <div onClick={handleDog}>dog</div>
+          <div onClick={handleOthers}>others</div>
         </div>
       ) : !breed ? (
+        <div className={styles.backdrop}>
         <div className={styles.breedpage}>
           <div>
             {breeds.map((x, i) => {
@@ -101,8 +111,10 @@ export default function PostPet() {
             src={temp ? temp.image.url : null}
           ></img>
         </div>
+        </div>
       ) : !name ? (
-        <>
+
+       <div className={styles.backdrop}>
           <input id="name" placeholder="name"></input>
           <button
             onClick={() => {
@@ -111,8 +123,9 @@ export default function PostPet() {
           >
             submit
           </button>
-        </>
+          </div>
       ) : image.length === 0 ? (
+        <div className={styles.backdrop}>
         <input
           onChange={(e) => {
             for (let i = 0; i < e.target.files.length; i++) {
@@ -129,8 +142,9 @@ export default function PostPet() {
           type="file"
           multiple
         />
+        </div>
       ) : !text ? (
-        <>
+        <div className={styles.backdrop}>
           <input id="text" placeholder="text" />
           <button
             onClick={() => {
@@ -139,8 +153,9 @@ export default function PostPet() {
           >
             submit
           </button>
-        </>
+        </div>
       ) : (
+        <div className={styles.backdrop}>
         <div>
           {image.map((x, i) => (
             <img key={x} className={styles.previewpics} src={x}></img>
@@ -150,6 +165,7 @@ export default function PostPet() {
           <p>{type}</p>
           <p>{text}</p>
           <button onClick={handleclick}>upload</button>
+        </div>
         </div>
       )}
     </div>

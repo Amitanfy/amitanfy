@@ -304,6 +304,21 @@
   justify-content: center;
   overflow: hidden;
 }
+.post{
+  height: 30vh;
+  width: 10vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #434343;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 1px solid #a0a0a0;
+  color:white;
+}
 .middledogimg {
   width: 200px;
   height: 90px;

@@ -1,7 +1,7 @@
 import styles from "../styles/pages/Home.module.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import { FaSearch } from "react-icons/fa";
+import { FaPlus, FaSearch } from "react-icons/fa";
 import { FaCat, FaDog } from "react-icons/fa";
 import { IoMdPaw } from "react-icons/io";
 import { BsFillHouseHeartFill } from "react-icons/bs";
@@ -121,10 +121,24 @@ export default function Home() {
               <div>Other Animals</div>
             </div>
           </div>
+          <div
+            onClick={() => {
+              router.push("/PostPet");
+            }}
+            className={styles.container}
+          >
+            <div>
+              <FaPlus className={styles.icon2}/>
+            </div>
+            <div>
+              <div>Post Your Pet</div>
+            </div>
+          </div>
 
         </div>
         <div className={styles.petsAVApics}>
           {posts.map((x, i) => {
+            if(i>=4) return
             const thumbnail = Buffer.from(x.data[0]).toString("base64");
             const mimeType = "image/jpeg";
             return (
@@ -138,6 +152,9 @@ export default function Home() {
               />
             );
           })}
+          <div onClick={()=>{
+            router.push("/PetPosts/all")
+          }} className={styles.post}>{posts.length} more pets available on petfinder</div>
         </div>
         <div className={styles.middleWhite}>
           <div className={styles.planning}>Planning to Adopt a Pet?</div>
