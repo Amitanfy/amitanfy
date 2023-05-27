@@ -14,12 +14,11 @@ export default function Post() {
   useEffect(() => {
     if (router.isReady) {
       const { pid } = router.query;
-      console.log(router.query);
       axios
         .get(baseUrl + "PetPost/" + pid)
         .then((res) => {
           setPost(res.data[0]);
-          console.log(res.data[0].data[0].data);
+          console.log(res.data[0]);
         })
         .catch((err) => {
           console.log(err);
@@ -46,20 +45,18 @@ export default function Post() {
             <div className={styles.info}>
               <div className={styles.card}>
                 <div className={[styles.name, styles.font].join(" ")}>
-                  Bella
+                  {post.name}
                 </div>
                 <div className={[styles.location, styles.font].join(" ")}>
                   {" "}
-                  Affenpinscher Mangilao, GU
+                  {post.breed +" "+ post.type}
                 </div>
-                <div className={[styles.category, styles.font].join(" ")}>
-                  Female | bulldog | dumb af
-                </div>
+
                 <div className={[styles.name, styles.font].join(" ")}>
                   About
                 </div>
                 <div className={[styles.about, styles.font].join(" ")}>
-                  she has to eat 4times every hours she fat af feed her so much
+                  {post.text}
                 </div>
 
                 {/*  <h1 className={styles.name}>Bella</h1>
@@ -67,7 +64,6 @@ export default function Post() {
                 <p className={styles.category}>female * bulldog * dumb af</p>
                 <p className={styles.about}> she has to eat 4times every hours she fat af feed her so much</p> */}
               </div>
-              <div className={styles.feedback}></div>
             </div>
           </div>
         </div>

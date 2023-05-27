@@ -154,7 +154,7 @@ export default function Home() {
           })}
           <div onClick={()=>{
             router.push("/PetPosts/all")
-          }} className={styles.post}>{posts.length} more pets available on petfinder</div>
+          }} className={styles.post}>{posts.length - 4 < 0? 0 : posts.length-4} more pets available on petfinder</div>
         </div>
         <div className={styles.middleWhite}>
           <div className={styles.planning}>Planning to Adopt a Pet?</div>
