@@ -25,7 +25,7 @@ export default function Home() {
   useEffect(() => {
     const arr = [];
     axios
-      .get(baseUrl + "PetPosts")
+      .get(baseUrl + "PetPosts/all")
       .then((res) => {
         setPosts(res.data);
         for (let i = 0; i < res.data.length; i++) {
@@ -78,28 +78,11 @@ export default function Home() {
       </div>
       <div className={styles.main}>
         <div className={styles.backimg}></div>
-        <div className={styles.searchOptions}>
-          <input
-            className={styles.searchPet}
-            placeholder="Search Terrier, Kitten, etc"
-          ></input>
-          <div className={styles.navbarVerticalLine}></div>
-          <input
-            className={styles.searchLocation}
-            placeholder="Enter City, State or ZIP"
-          ></input>
-          <div className={styles.petFinder}>
-            <FaSearch />
-          </div>
-        </div>
         <div className={styles.header}>Find your new best friend</div>
-        <div className={styles.underHeader}>
-          Browse pets from our network of over 11,500 shelters and rescues
-        </div>
         <div className={styles.finder}>
           <div
             onClick={() => {
-              router.push("/PetPosts");
+              router.push("/PetPosts/dogs");
             }}
             className={styles.container}
           >
@@ -113,7 +96,7 @@ export default function Home() {
 
           <div
             onClick={() => {
-              router.push("/PetPosts");
+              router.push("/PetPosts/cats");
             }}
             className={styles.container}
           >
@@ -127,7 +110,7 @@ export default function Home() {
 
           <div
             onClick={() => {
-              router.push("/PetPosts");
+              router.push("/PetPosts/others");
             }}
             className={styles.container}
           >
@@ -139,16 +122,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className={styles.container}>
-            <div>
-              <BsFillHouseHeartFill className={styles.icon} />
-            </div>
-            <div>
-              <div>Shelters & Rescues</div>
-            </div>
-          </div>
         </div>
-        <div className={styles.petsAv}>Pets Available for Adoption Nearby</div>
         <div className={styles.petsAVApics}>
           {posts.map((x, i) => {
             const thumbnail = Buffer.from(x.data[0]).toString("base64");
@@ -199,48 +173,6 @@ export default function Home() {
                 </div>
                 <div className={styles.learnMore}>LEARN MORE</div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className={styles.articles}>
-          <div className={styles.articlesHeader}>Articles</div>
-          <div className={styles.articlesMain}>
-            <div className={styles.article1}>
-              <div className={styles.middleDog}>
-                <img
-                  className={styles.middledogimg}
-                  src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/47.jpeg?itok=HNT_yv1F"
-                ></img>
-              </div>
-              <div className={styles.articleImg}>
-                <div className={styles.filler}></div>
-                <div className={styles.underPicWhite}>
-                  <div className={styles.margintop}>Dog Adoption Articles</div>
-                  <div className={styles.lightgrey}>
-                    Learn more about caring for your new dog.
-                  </div>
-                </div>
-              </div>
-              <div className={styles.articleReadMore}>READ MORE</div>
-            </div>
-
-            <div className={styles.article2}>
-              <div className={styles.middleDog}>
-                <img
-                  className={styles.middledogimg}
-                  src="https://www.petfinder.com/sites/default/files/styles/card/public/images/content/PF2015_267_Kittens_Shelter-630.jpg?itok=JGTdJJaD"
-                ></img>
-              </div>
-              <div className={styles.articleImg2}>
-                <div className={styles.filler}></div>
-                <div className={styles.underPicWhite}>
-                  <div className={styles.margintop}>Cat Adoption Articles</div>
-                  <div className={styles.lightgrey}>
-                    Helpful insights on what we expect you too see.
-                  </div>
-                </div>
-              </div>
-              <div className={styles.articleReadMore}>READ MORE</div>
             </div>
           </div>
         </div>

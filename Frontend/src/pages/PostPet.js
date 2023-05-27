@@ -15,10 +15,9 @@ export default function PostPet() {
   const [temp, setTemp] = useState(null);
   const { user, decoded } = useContext(UserContext);
   const baseUrl = process.env.API_KEY;
-
+  console.log(decoded)
   const handleclick = () => {
-    console.log(breed);
-    console.log(decoded);
+    if(decoded===null){ console.log("please sign in ");return}
     if (image === null) return;
     var bodyFormData = new FormData();
     bodyFormData.append("authorId", decoded.uid);
@@ -45,7 +44,7 @@ export default function PostPet() {
   };
 
   const handleCat = () => {
-    setType("cat");
+    setType("муур");
     axios
       .get("https://api.thecatapi.com/v1/breeds", {
         headers: {
@@ -56,7 +55,7 @@ export default function PostPet() {
       .then((res) => console.log(setBreeds(res.data)));
   };
   const handleDog = () => {
-    setType("dog");
+    setType("нохой");
     axios
       .get("https://api.thedogapi.com/v1/breeds", {
         headers: {

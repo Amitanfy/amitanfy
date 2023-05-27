@@ -10,7 +10,7 @@ const {  verify } = require("../middleware/verify");
 const {  adminverify } = require("../middleware/adminverify");
 
 petPostRouter
-  .get("/PetPosts", getPosts)
+  .get("/PetPosts/:type", getPosts)
   .post("/PostPet",verify, postpet)
   .delete("/delallposts",adminverify, deletePetPosts)
   .get("/PetPost/:id", getPost);

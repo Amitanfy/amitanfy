@@ -40,7 +40,6 @@ exports.getUsers = async (req, res) => {
 };
 exports.handleplatform = async(req,res) =>{
   const payload = jwt.verify(req.body.token, process.env.JWTEC || "defaultsecret");
-  console.log(payload)
   const user = await User.findOne({ email: payload.email});
   if(user) {
     const token = getToken(user.username, user._id, user.role);

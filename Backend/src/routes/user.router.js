@@ -9,7 +9,7 @@ userRouter
   .get("/users",adminverify, getUsers)
   .post("/signup", signUp)
   .post("/signin", signIn)
-  .post("/platformsignin",verify,handleplatform)
+  .post("/platformsignin",handleplatform)
   .delete("/delete/:id",adminverify, removeUser)
   .put("/changerole/:id",adminverify, changeRole)
   .put("/verifyuser", verifyUser)

@@ -21,9 +21,13 @@ export default function SignIn() {
   const baseUrl = process.env.API_KEY;
 
   useEffect(() => {
-    console.log(session);
     if (session) {
-      localStorage.setItem("user", session.jwt);
+      console.log(session.jwt);
+      const body = {
+        token : session.jwt
+      }
+      axios.post(baseUrl + "platformsignin",body).then((res)=>{    localStorage.setItem("user", res.data);})
+
       router.push("/");
     }
   }, [session]);

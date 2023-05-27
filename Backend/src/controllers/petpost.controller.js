@@ -54,7 +54,6 @@ exports.postpet = (req, res) => {
                 }
               );
             }
-            res.send("success");
           })
           .catch((err) => res.send(err));
       }
@@ -65,8 +64,9 @@ exports.postpet = (req, res) => {
 };
 
 exports.getPosts = async (req, res) => {
-  const body = await petPostModel.find({});
-  res.send(body);
+  console.log(req.params.type)
+  const body = req.params.type === "cats" ? await petPostModel.find({type: "муур"}) : req.params.type === "dogs" ? await petPostModel.find({type: "нохой"}) : req.params.type === "others" ? await petPostModel.find({type: "бусад"}) : await petPostModel.find({});
+  res.send(body)
 };
 exports.getPost = async (req, res) => {
   try {
